@@ -1,0 +1,112 @@
+@import "compass";
+@import "susy";
+@import "_reset";
+@import "_typeplate-vars";
+@import "_typeplate";
+@import "_introjs";
+
+@import "_dialog";
+@import "_navigation";
+@import "_forms";
+@import "_buttons";
+@import "_article";
+
+body { background: #F00; } 
+
+#header, #footer {
+	display: none; 
+	width: 100%; 
+	height: 2em; 
+	background: #FFF;
+	position: absolute;
+	left: 0;
+	z-index: 10000;
+
+	/*@include box-shadow(#666 0 0 5px); */
+}
+
+#header {
+
+	h1 {
+		height: 3em;
+		text-indent: -1920px; 
+		background: #FFF url('../images/logo.png') 15px top no-repeat;
+		background-size: contain; 
+	}
+
+	nav {
+		display: block; 
+
+		li { line-height: 3em; }
+	}
+
+}
+
+footer[role="banner"] {
+	bottom: 0;
+
+	a { line-height: 2em; }
+}
+
+#content-wrapper { 
+	height: 100%;
+	padding: 0 0 2em 0; 
+}
+
+.section {
+	position: absolute; 
+	top: 0; left: 0;
+	opacity: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden;
+}
+
+.section .column {
+	width: 0%;
+	height: 100%;
+	float: left; 
+	overflow: none; 
+	background: #FFF; 
+	position: relative;
+	z-index: 900; 
+	
+	@include box-shadow(#666 0 0 5px); 
+	@include single-transition(all, 0.3s, linear);
+
+	.tours & { overflow: auto; }
+
+	#map-holder {
+		height: 100%; 
+		@include single-transition(width, 0.3s, linear);
+	}
+}
+
+#container {
+	position: relative;
+	left: 0; top: 0;
+
+	width: 100%; 
+	height: 100%;
+	
+	.explore & #explore { 
+		opacity: 1;  
+
+		.column.c1 { width: 40%; z-index: 3000; }
+		.column.c2 { width: 60%; }
+		.column.c3 { width: 0%; }
+   	}
+
+	.explore.pin & #explore { 
+		opacity: 1;
+
+		.column.c1 { width: 30%; }
+		.column.c2 { width: 30%; }
+		.column.c3 { width: 40%; }
+   	}
+	
+	.users & { 
+
+   	}
+	
+}

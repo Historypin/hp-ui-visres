@@ -1,0 +1,97 @@
+$imagePreviewSize: 250px;
+
+article {
+	padding: 2em; 
+	overflow: auto; 
+	
+	.image {
+		max-width: $imagePreviewSize+20; 
+		max-height: $imagePreviewSize+20; 
+		border: 1px solid #999; 
+		border-radius: 6px;
+		overflow: hidden; 
+		padding: 0 10px; 
+		margin: 0 0 0.5em 1em; 
+		float: right;
+		position: relative; 
+		background: #FFF;
+		
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:hover:after {
+			content: '.';
+			display: block;
+			width: 50px;
+			height: 50px;
+			overflow: hidden;
+			text-indent: -1920px; 
+		   	background: #F00; 
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: 1000; 
+		}
+
+		img {
+			display: block;
+			max-height: $imagePreviewSize;
+			max-width: $imagePreviewSize;
+			position: relative;
+			z-index: 100; 
+			margin: 10px auto; 
+			/*border-radius: 6px;*/
+		}
+	}
+
+	section {
+		padding: 0.5em 0; 
+	}
+
+	footer {
+		border-top: 1px dotted #DDD;
+		padding: 0.3em 0; 
+		font-size: 0.9em;
+		color: #666; 
+	}
+
+	.list {
+		overflow: hidden; 
+
+		li {
+			width: 50%;
+			float: left;
+			list-style: outside none;
+			padding: 1em 0.5em; 
+			
+			a {		
+				color: #000; 
+			}
+
+			span {
+				display: block;
+				float: left; 
+			}
+
+			.thumbnail {
+				width: 200px; height: 200px;
+				padding: 0.2em;
+				background: #FFF; 
+				border-radius: 6px;
+				overflow: hidden;
+
+				@include box-shadow(#666 0 0 10px); 
+
+				img { display: block; width: 100%; height: 100%; border-radius: 4px; }
+			}
+
+			.title {
+				width: 50%;
+				font-size: 1.2em; 
+				padding-left: 1em; 
+			}
+		}
+	}
+}
+

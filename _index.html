@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HP Layout</title>
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/app.css">
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgYOwy86bmyVzUkMARb_hhKD-eEYngSNE&sensor=false"></script>
+
+	<script type="text/javascript" src="js/lib/jquery-1.9.1.min.js"></script>
+
+	<script type="text/javascript" src="js/plugins/jquery.nouislider.min.js"></script>
+
+	<script type="text/javascript" src="js/historypin.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<script type="text/javascript" src="js/nav.js"></script>
+	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body class="map">
+
+	<div id="wrapper">
+		<header role="banner">
+			<h1><a href="/">Historypin</a></h1>
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a class="layout-toggle" data-layout="map" href="#">Map</a></li>
+					<li><a class="layout-toggle" data-layout="projects" href="/projects/">Projects</a></li>
+					<li><a class="layout-toggle" data-layout="channels" href="/channels/">Channels</a></li>
+					<li><a class="layout-toggle" data-layout="tours" href="/curated/">Tours</a></li>
+					<li><a class="layout-toggle" data-layout="collections" href="/curated/">Collections</a></li>
+					<!--<li><a href="/community/">Get Involved</a></li>-->
+					<!--<li><a href="/blog">Blog</a></li>-->
+
+					<li class="right"><a id="login-toggle" href="/user/">Login</a></li>
+					<li class="right"><a id="logout-toggle" href="/user/">Logout</a></li>
+					<li class="right"><a id="profile-toggle" href="/channels/view/864001/">My Channel</a></li>
+					<li class="right"><a id="pin-toggle" href="/upload/bridge/">Pin</a></li>
+				</ul>
+			</nav>
+			<div id="search">
+				<form action="#" method="post">
+					<label>Search by Place</label>
+					<input type="text" name="search" placeholder="e.g. London, NYC" />
+					<input type="submit" class="button" value="Go" />
+					<label>and in </label>
+					<span class="toggle-date-filter button">Time</span>
+				</form>
+			</div>
+		</header>
+		<div id="container">	
+
+			<div id="content-wrapper">
+
+				<div class="section" id="tabs">
+					<ul>
+						<li><a data-layout="tab1" href="#">A</a></li>
+						<li><a data-layout="tab2" href="#">D</a></li>
+						<li><a data-layout="tab3" href="#">S</a></li>
+						<li><a data-layout="tab4" href="#">E</a></li>
+					</ul>
+				</div>
+
+				<div class="section" id="tab1">
+					Tab 1
+				</div>
+
+				<div class="section" id="tab2">
+					Tab 2
+				</div>
+
+				<div class="section" id="tab3">
+					Tab 3
+				</div>
+
+				<div class="section" id="tab4">
+					Tab 4
+				</div>
+
+				<div class="section" id="map"> 
+					<div id="map-holder"></div>
+				</div>
+				
+				<div class="section" id="map-filters">
+					<div class="inner">
+						<div id="values">
+							<span id="start-date">1840</span>
+							<span id="end-date">2013</span>
+						</div>
+						<div id="date-range" class="slider"></div>
+						<div id="dates"></div>
+					</div>
+				</div>
+				
+				<div class="section" id="pin">
+				
+				</div>
+
+				<div class="section" id="projects">
+					<article>
+						<header>
+							<h2>Projects</h2>
+						</header>
+						<section>
+							<ul class="list"></ul>
+						</section>
+						<footer>
+						</footer>
+					</article>
+				</div>
+
+				<div class="section" id="channels">
+					<article>
+						<header>
+							<h2>Channels</h2>
+						</header>
+						<section>
+							<ul class="list"></ul>
+						</section>
+						<footer>
+						</footer>
+					</article>
+				</div>
+
+				<div class="section" id="tours">
+					<article>
+						<header>
+							<h2>Tours</h2>
+						</header>
+						<section>
+							<ul class="list"></ul>
+						</section>
+						<footer>
+						</footer>
+					</article>
+				</div>
+
+				<div class="section" id="collections">
+					<article>
+						<header>
+							<h2>Collections</h2>
+						</header>
+						<section>
+							<ul class="list"></ul>
+						</section>
+						<footer>
+						</footer>
+					</article>				
+				</div>
+
+				<div class="slide-panel" id="pinner">
+
+					<ul class="progress-bar">
+						<li>Choose stuff to add <span class="ss-icon ss-newmoon"></span></li>
+						<li>Add something <span class="ss-icon ss-fullmoon"></span></li>
+						<li>Pin it to the map <span class="ss-icon ss-fullmoon"></span></li>
+						<li>All done <span class="ss-icon ss-fullmoon"></span></li>
+					</ul>
+
+					<div class="upload-content">
+						<h2>I want to add</h2>
+
+						<ul class="upload-type">
+							<li><a class="media photos" href="/upload-item/index/"><span class="ss-icon ss-picture"></span><br>Photos</a></li>
+							<li><a class="media videos" href="/upload-video/index/"><span class="ss-icon ss-video"></span><br>Video</a></li>
+							<li><a class="media audio" href="/upload-audio/index/"><span class="ss-icon ss-headphones"></span><br>Audio</a></li>
+						</ul>
+						<p>Want to upload large amounts of content? Read about our <a href="/bulkbridge/">Bulk Uploader</a></p>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+		<footer role="banner">
+			<nav>
+				<ul> 
+					<li><a href="/" title="Home">Home</a></li>
+					<li><a href="/about-us" title="About">About</a></li>
+					<li><a href="/faq" title="FAQs">FAQs</a></li>
+					<li><a href="/presscentre" title="Press Centre">Press Centre</a></li>
+					<li><a href="/donate" title="Support us">Support us</a></li>
+					<li><a href="/app" title="App">Mobile App</a></li>
+					<li><a href="/terms-and-conditions" title="Terms of Use">Terms and Conditions</a></li>
+					<li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+					<li><a href="/cookies" title="Privacy Policy">Cookies</a></li>
+					<li><a href="/contact" title="Contact">Contact</a></li> 
+					<li style="float: right;"><a href="http://wearewhatwedo.org" target="_blank">© 2012 We Are What We Do</a></li>
+				</ul>
+			</nav>
+		</footer>
+
+	</div>
+
+	<div class="dialog-cover"></div>
+	<div class="dialog" id="login">	
+		<div class="card">
+			<div class="face">
+
+				<h3>Login with</h3>
+
+				<a href="#" class="button medium login-button">Google+</a>
+				<a href="#" class="button medium login-button">Facebook</a>
+				<a href="#" class="button medium login-button">Twitter</a>
+
+			</div>
+			<div class="face help">
+
+				<h3>Help </h3>
+
+				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
+				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
+
+				<a href="#" class="button pill help-off">Close Help</a>
+
+			</div>
+		</div>
+		<div class="win-btn help-on icon-help">Help</div>
+		<div class="win-btn close icon-close">Close</div>
+	</div>
+
+	<div class="dialog" id="profile">	
+		<div class="card">
+			<div class="face">
+
+				<hgroup>
+					<h3>Your Channel</h3>
+					<h2>Konstantin Dankov</h2>
+				</hgroup>
+				
+				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
+				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
+
+				<a href="#" class="button help-on">Edit Profile</a>
+
+			</div>
+			<div class="face help">
+
+				<h3>Edit Profile</h3>
+				
+				<form action="#" method="post">
+				    <div class="field">
+				        <label>Name</label>
+				        <input type="text" name="" value="" />
+				    </div>
+				    <div class="field">
+				        <label>Description</label>
+				        <textarea name=""></textarea>
+				    </div>
+				</form>
+
+				<a href="#" class="button pill help-off">Submit</a>
+
+			</div>
+		</div>
+		<div class="win-btn help-on icon-help">Help</div>
+		<div class="win-btn close icon-close">Close</div>
+	</div>
+
+</body>
+</html>

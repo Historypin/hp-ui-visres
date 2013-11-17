@@ -1,0 +1,6 @@
+texts = {
+	tours: {
+		listTitle: 'Tours'
+	}
+}
+
