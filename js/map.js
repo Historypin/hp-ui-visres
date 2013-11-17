@@ -11,23 +11,62 @@ map.globals = {
 
 map.init = function(){
 
-	var mapOptions = {
-		center: map.globals.curLatLng,
+	map.instance = new GMaps({
+		div: '#map-holder',
 		zoom: 5,
-		zoomControlOptions: {
-			style: google.maps.ZoomControlStyle.SMALL
-		},
-		panControl: false,
-		mapTypeControl: false,
-		scaleControl: false,
-		streetViewControl: false,
-		overviewMapControl: false,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	map.instance = new google.maps.Map(document.getElementById("map-holder"), mapOptions);
-	google.maps.visualRefresh = true;
+		lat: 51.42802,
+		lng: -0.175099,
 
-	// Load a small list of pins and position them on the map.
+		click: function(e) {
+			console.log('click');
+		},
+
+		dragend: function(e) {
+			console.log('dragend');
+		}
+	});
+
+	map.instance.setContextMenu({
+		control: 'map',
+		options: [{
+			title: 'Add marker',
+			name: 'add_marker',
+			action: function(e) {
+				this.addMarker({
+					lat: e.latLng.lat(),
+					lng: e.latLng.lng(),
+					title: 'New marker'
+				});
+			}
+		}, {
+			title: 'Center here',
+			name: 'center_here',
+			action: function(e) {
+				this.setCenter(e.latLng.lat(), e.latLng.lng());
+			}
+		}]
+	});
+
+	map.instance.addControl({
+		position: 'top_right',
+		content: 'Geolocate',
+		style: {
+			margin: '5px',
+			padding: '1px 6px',
+			background: '#fff',
+			fontFamily: 'Roboto, Arial, sans-serif',
+			fontSize: '11px',
+			border: '1px solid rgba(0, 0, 0, 0.3)',
+			borderRadius: '2px',
+			boxShadow: 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px'
+		},
+		events: {
+			click: function(){
+				console.log(this);
+			}
+		}
+	});
+
 	$.each(map.globals.pinList, function(){
 		
 		var pinID = this+'';
@@ -35,24 +74,29 @@ map.init = function(){
 		hp.get.pin(pinID).done(function(data){
 
 			var pin = data.data;
-			var infowindow = new google.maps.InfoWindow({ content: pin.c });
-			var pinLatLng = new google.maps.LatLng(pin.t, pin.g);
-			var marker = new google.maps.Marker({
-				position: pinLatLng,
-				animation: google.maps.Animation.DROP,
-				map: map.instance
-			});
+			map.instance.addMarker({
+				lat: pin.t,
+				lng: pin.g,
+				//animation: google.maps.Animation.DROP,
+				title: pin.c,
+				infoWindow: {
+					content: pin.c
+				},
+				click: function(e) {
 
-			google.maps.event.addListener(marker, 'click', function() {
-				app.changeSection('explore pin', pin);
-				app.openPin(pin);
-				map.instance.setCenter(pinLatLng);
+					console.log('You clicked in this marker');
+
+					app.changeSection('explore pin', pin);
+					app.openPin(pin);
+
+					map.instance.setCenter(pinLatLng);
+				}
 			});
 
 		});
 
 	});
-
+	
 	// Change map Center and redraw the map
 	$('#map-holder').bind("webkitTransitionEnd", function(event){
 		if (event.originalEvent.propertyName === "width") {
