@@ -55,9 +55,9 @@ $(function(){
 		
 		//console.log('ONLINE!');
 
-		dialog.init();
-		map.init();
-		nav.init();
+		//dialog.init();
+		//map.init();
+		//nav.init();
 
 		//introJs().start();
 
