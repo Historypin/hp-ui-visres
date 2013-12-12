@@ -4,13 +4,23 @@ app.views = {
 	explore: {}
 }
 
+app.init = function(){
+	app.views.explore = $('#explore');
+}
+
+app.changeSection = function(section, pin){
+
+	if ( section )
+	{
+		$('body').addClass(section);
+	}
+
+}
+
 app.openPin = function(data){
 	
 	var pin = data;
 	var sectionPinView = $('#pin');
-
-	map.globals.curLatLng = new google.maps.LatLng(pin.t, pin.g);
-	map.instance.setZoom(17);
 
 	sectionPinView.find('article').remove();
 
@@ -36,24 +46,80 @@ app.openPin = function(data){
 	'</article>';
 	
 	sectionPinView.append($pin);
-
 }
-
 
 $(function(){
 
 	if (navigator.onLine) {
-		
+
+		dialog.init();
+		map.init();
+		app.init();
+		nav.init();
+
 		//console.log('ONLINE!');
-
-		//dialog.init();
-		//map.init();
-		//nav.init();
-
-		//introJs().start();
-
+		
 	} else {
+
 		//console.log('Connection flaky');
+		alert("It looks like the internet connections is flaky");
+
 	}
 
 });
+
+
+var VISRES = (function (VISRES, $) {
+
+    VISRES.susyOffCanvasToggle = {
+        init: function (triggers) {
+
+            $(triggers).click(function (e) {
+                e.preventDefault();
+                VISRES.susyOffCanvasToggle.toggleClasses(this);
+                VISRES.susyOffCanvasToggle.toggleText(triggers);
+            });
+
+            return triggers;
+        },
+        toggleClasses: function (el) {
+
+            var body = $('body');
+            var dir = $(el).attr('href');
+
+            if (dir === '#left') {
+                body.toggleClass('show-left').removeClass('show-right');
+            }
+
+            if (dir === '#right') {
+                body.toggleClass('show-right').removeClass('show-left');
+            }
+
+            return body.attr('class');
+        },
+        toggleText: function (triggers) {
+
+            var left = $(triggers).filter('[href="#left"]');
+            var right = $(triggers).filter('[href="#right"]');
+            var body = $('body');
+
+            if (body.hasClass('show-left')) {
+                left.text('hide left');
+            } else {
+                left.text('show left');
+            }
+            if (body.hasClass('show-right')) {
+                right.text('hide right');
+            } else {
+                right.text('show right');
+            }
+        }
+    };
+
+    $(function () {
+        VISRES.susyOffCanvasToggle.init($('.toggle'));
+    });
+
+    return VISRES;
+
+}(VISRES || {}, jQuery));

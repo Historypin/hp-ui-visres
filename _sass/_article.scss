@@ -1,20 +1,14 @@
-$imagePreviewSize: 250px;
-
 article {
 	padding: 2em; 
 	overflow: auto; 
 	
 	.image {
-		max-width: $imagePreviewSize+20; 
-		max-height: $imagePreviewSize+20; 
-		border: 1px solid #999; 
-		border-radius: 6px;
+		width: 100%;
+		height: 200px; 
 		overflow: hidden; 
-		padding: 0 10px; 
-		margin: 0 0 0.5em 1em; 
-		float: right;
-		position: relative; 
 		background: #FFF;
+		border: 1px solid #666;
+		margin-bottom: 10px; 
 		
 		&:hover {
 			cursor: pointer;
@@ -36,8 +30,7 @@ article {
 
 		img {
 			display: block;
-			max-height: $imagePreviewSize;
-			max-width: $imagePreviewSize;
+			width: 100%; 
 			position: relative;
 			z-index: 100; 
 			margin: 10px auto; 

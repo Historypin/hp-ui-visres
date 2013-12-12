@@ -1,6 +1,0 @@
-texts = {
-	tours: {
-		listTitle: 'Tours'
-	}
-}
-

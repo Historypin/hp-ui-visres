@@ -1,0 +1,51 @@
+#activity
+{
+	overflow: auto; 
+
+	.activity {
+		width: 100%;
+
+		a:hover { text-decoration: underline; }
+		p { overflow: hidden; }
+
+		.ss-headphones,
+		.ss-video { font-size: 40px; }
+		.ss-headphones img,
+		.ss-video img { display: none; }
+
+		.thumb:hover + p { overflow: visible; }
+
+		.thumb a { display: block; width: 100%; height: 100%; }
+		.thumb a:hover { color: #ec008c; }
+
+		.thumb .ss-headphones:before,
+		.thumb .ss-headphones.right:after,
+		.thumb .ss-video:before,
+		.thumb .ss-video.right:after { vertical-align: middle; position: relative; top: 11px; }
+
+		li .thumb:hover .ss-headphones,
+		li .thumb:hover .ss-video { font-size: 100px; width: 312px; height: 170px; display: table-cell; vertical-align: middle; }
+
+		li {
+			display: block; clear: both; padding: 5px; border: 1px solid #f6f6f6; border-width: 1px 0; @include transition(background 0.3s);
+
+			&:hover { background-color: #F4f4f4; cursor: pointer; }
+
+			p { margin: 0; }
+			.thumb:hover { width: 100%; height: 180px; margin-bottom: 5px; }
+		}
+
+		.thumb {
+			float: left; position: relative; width: 60px; height: 60px; overflow: hidden; text-align: center; margin-right: 5px;
+			@include transition(height .3s);
+
+			img { display: block; height: 100%; } 
+
+			.ss-icon { display: block; width: 24px; height: 24px; border-radius: 12px; background-color: #FFF; color: #090; position: absolute; top: 18px; left: 18px; z-index: 100; font-size: 14px; text-align: center; vertical-align: baseline; line-height: 28px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); @extend .pie-element; }
+		}
+
+		.more,
+		.less { width: 24px; display: block; margin: 0 auto; bottom: 10px; font-size: 24px; text-align: center; position: relative; }
+
+	}
+}
