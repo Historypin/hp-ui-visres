@@ -4,15 +4,6 @@ app.views = {
 	explore: {}
 }
 
-app.changeSection = function(section, pin){
-
-	if ( section )
-	{
-		$('body').attr('class', section);
-	}
-
-}
-
 app.openPin = function(data){
 	
 	var pin = data;
