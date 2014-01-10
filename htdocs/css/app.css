@@ -1,17 +1,16 @@
-@charset "UTF-8";
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_reset\.scss}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_reset\.scss}line{font-family:\000031}}
 * {
   margin: 0;
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_reset\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_reset\.scss}line{font-family:\000035}}
 html, body, #wrapper {
   height: 100%;
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_reset\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_reset\.scss}line{font-family:\0000310}}
 a {
   text-decoration: none;
 }
@@ -50,12 +49,12 @@ a {
   unicode-range: U+270C;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003386}}
 body {
   word-wrap: break-word;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003390}}
 pre code {
   word-wrap: normal;
 }
@@ -69,12 +68,12 @@ pre code {
  * Extend this object into your custom stylesheet. Let the variables do the work.
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003515}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003515}}
 html {
   font: normal 87.5%/1.5 "PT Sans", sans-serif;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003523}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003523}}
 body {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -84,92 +83,92 @@ body {
   color: #444444;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003534}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003534}}
 small {
   font-size: 65%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003557}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003557}}
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   line-height: 1;
   margin-top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .tera {
   font-size: 117px;
   font-size: 8.35714rem;
   margin-bottom: 0.17949rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .giga {
   font-size: 90px;
   font-size: 6.42857rem;
   margin-bottom: 0.23333rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .mega {
   font-size: 72px;
   font-size: 5.14286rem;
   margin-bottom: 0.29167rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .alpha, h1 {
   font-size: 60px;
   font-size: 4.28571rem;
   margin-bottom: 0.35rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .beta, h2 {
   font-size: 48px;
   font-size: 3.42857rem;
   margin-bottom: 0.4375rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .gamma, h3 {
   font-size: 36px;
   font-size: 2.57143rem;
   margin-bottom: 0.58333rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .delta, h4 {
   font-size: 24px;
   font-size: 1.71429rem;
   margin-bottom: 0.875rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .epsilon, h5 {
   font-size: 21px;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003572}}
 .zeta, h6 {
   font-size: 18px;
   font-size: 1.28571rem;
   margin-bottom: 1.16667rem;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003612}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003612}}
 p {
   margin: auto auto 1.5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003614}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003614}}
 p + p {
   text-indent: 1.5em;
   margin-top: -1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003638}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003638}}
 abbr,
 acronym,
 blockquote,
@@ -190,18 +189,18 @@ xmp {
   hyphens: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003646}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003646}}
 pre code {
   white-space: -moz-pre-wrap;
   white-space: pre-wrap;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003651}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003651}}
 pre {
   white-space: pre;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003655}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003655}}
 code {
   white-space: pre;
   font-family: monospace;
@@ -215,19 +214,19 @@ code {
  * Extend this object into your markup.
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003671}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003671}}
 abbr {
   font-variant: small-caps;
   font-weight: 600;
   text-transform: lowercase;
   color: gray;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003673}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003673}}
 abbr[title]:hover {
   cursor: help;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003687}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003687}}
 h1,
 h2,
 h3,
@@ -237,13 +236,13 @@ h6 {
   color: #222222;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003697}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003697}}
 p + .drop-cap {
   text-indent: 0;
   margin-top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003417}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003417}}
 .drop-cap:first-letter {
   float: left;
   margin: inherit;
@@ -267,23 +266,23 @@ p + .drop-cap {
  * Extend this object into your markup.
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003456}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003456}}
 .lining dt,
 .lining dd {
   display: inline;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003463}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003463}}
 .lining dt + dt:before,
 .lining dd + dt:before {
   content: "\A";
   white-space: pre;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003471}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003471}}
 .lining dd + dd:before {
   content: ", ";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003475}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003475}}
 .lining dd:before {
   content: ": ";
   margin-left: -0.2rem;
@@ -300,22 +299,22 @@ p + .drop-cap {
  * Extend this object into your markup.
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003483}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003483}}
 .dictionary-style dt {
   display: inline;
   counter-reset: definitions;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003487}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003487}}
 .dictionary-style dt + dt:before {
   content: ", ";
   margin-left: -0.2rem;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003493}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003493}}
 .dictionary-style dd {
   display: block;
   counter-increment: definitions;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003496}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003496}}
 .dictionary-style dd:before {
   content: counter(definitions,decimal) ". ";
 }
@@ -349,12 +348,12 @@ p + .drop-cap {
  * Extend this object into your custom stylesheet.
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003781}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003781}}
 .pull-quote {
   position: relative;
   padding: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003358}}
 .pull-quote:before, .pull-quote:after {
   height: 1em;
   opacity: 0.5;
@@ -362,13 +361,13 @@ p + .drop-cap {
   font-size: 4em;
   color: #dc976e;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003365}}
 .pull-quote:before {
   content: '“';
   top: 0;
   left: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_typeplate\.scss}line{font-family:\00003370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_typeplate\.scss}line{font-family:\00003370}}
 .pull-quote:after {
   content: '”';
   bottom: 0;
@@ -403,7 +402,7 @@ p + .drop-cap {
  *
  */
 /*@import "_introjs";*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\000034}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\000034}}
 .dialog {
   width: 60%;
   height: 50%;
@@ -424,7 +423,7 @@ p + .drop-cap {
   -o-perspective: 1000px;
   perspective: 1000px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000317}}
 .dialog .card {
   width: 100%;
   height: 100%;
@@ -441,7 +440,7 @@ p + .drop-cap {
   -o-transition: all 0.4s ease-in, 1s;
   transition: all 0.4s ease-in, 1s;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000326}}
 .dialog .win-btn {
   display: block;
   width: 2em;
@@ -453,7 +452,7 @@ p + .drop-cap {
   right: 10px;
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000336}}
 .dialog .win-btn:before {
   display: block;
   width: 100%;
@@ -465,19 +464,19 @@ p + .drop-cap {
   line-height: 0.15;
   color: #444;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000348}}
 .dialog .win-btn.icon-close:before {
   content: 'D';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000349}}
 .dialog .win-btn.icon-help:before {
   content: '?';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000352}}
 .dialog .win-btn.help-on {
   right: 40px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000357}}
 .dialog.flipped .card {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -485,11 +484,11 @@ p + .drop-cap {
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000361}}
 .dialog.flipped .close, .dialog.flipped .help-on {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000367}}
 .dialog .face {
   position: absolute;
   width: 100%;
@@ -503,7 +502,7 @@ p + .drop-cap {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000378}}
 .dialog .face.help {
   background: #eee;
   -webkit-transform: rotateY(180deg);
@@ -513,7 +512,7 @@ p + .drop-cap {
   transform: rotateY(180deg);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000386}}
 .dialog-cover {
   width: 100%;
   height: 100%;
@@ -530,12 +529,12 @@ p + .drop-cap {
   box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\0000397}}
 html.dialog-active {
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\00003100}}
 .dialog-active .dialog-animate {
   visibility: visible;
   opacity: 1;
@@ -546,13 +545,13 @@ html.dialog-active {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\00003101}}
 .dialog-active .dialog-cover {
   visibility: visible;
   opacity: 1;
   z-index: 2000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\00003102}}
 .dialog-active #wrapper {
   -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
@@ -564,7 +563,7 @@ html.dialog-active {
   transform: scale(0.9, 0.9);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\00003106}}
 .dialog-ready #wrapper, .dialog-ready .dialog, .dialog-ready .dialog-cover {
   -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
@@ -576,7 +575,7 @@ html.dialog-active {
   -o-transition: 0.25s all ease-in;
   transition: 0.25s all ease-in;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_dialog\.scss}line{font-family:\00003110}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_dialog\.scss}line{font-family:\00003110}}
 .dialog-ready .dialog-popup.no-transition {
   -webkit-transition: none;
   -moz-transition: none;
@@ -584,17 +583,17 @@ html.dialog-active {
   transition: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\000031}}
 nav {
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\000034}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\000034}}
 nav ul {
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\000037}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\000037}}
 nav ul li {
   display: block;
   padding: 0;
@@ -602,52 +601,52 @@ nav ul li {
   list-style: none outside;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000313}}
 nav ul li.right {
   float: right;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000315}}
 nav ul li.active a {
   color: #000;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000320}}
 nav ul li a {
   color: #666;
   padding: 0 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000324}}
 nav ul li a:hover {
   text-decoration: underline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000331}}
 #logout-toggle, #profile-toggle, #pin-toggle {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000334}}
 .logged #logout-toggle, .logged #profile-toggle, .logged #pin-toggle {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000339}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000339}}
 .logged #login-toggle {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000343}}
 #tabs > ul {
   padding: 0;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000346}}
 #tabs > ul li {
   display: block;
   list-style: none outside;
   padding: 0;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000347}}
 #tabs > ul li a {
   display: block;
   color: #000;
@@ -657,20 +656,20 @@ nav ul li a:hover {
   line-height: 1em;
   padding: 1em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_navigation\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_navigation\.scss}line{font-family:\0000348}}
 #tabs > ul li a:hover {
   background: #EEE;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\000038}}
 form {
   /* RADIO */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000310}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000310}}
 form input, form label {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000314}}
 form input, form textarea, form select {
   width: 100%;
   outline: none;
@@ -694,7 +693,7 @@ form input, form textarea, form select {
   -moz-box-shadow: inset 0 0 0 1px white;
   box-shadow: inset 0 0 0 1px white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000327}}
 form input:active, form input:focus, form textarea:active, form textarea:focus, form select:active, form select:focus {
   color: #444;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ffffff), color-stop(100%, #ececec));
@@ -703,14 +702,14 @@ form input:active, form input:focus, form textarea:active, form textarea:focus, 
   background-image: -o-linear-gradient(bottom, #ffffff, #ececec);
   background-image: linear-gradient(bottom, #ffffff, #ececec);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000334}}
 form select {
   position: relative;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000338}}
 form select:after {
   width: 1em;
   height: 1em;
@@ -721,26 +720,26 @@ form select:after {
   content: '2';
   color: #000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000348}}
 form textarea {
   width: 100%;
   min-height: 9em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000353}}
 form label {
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000357}}
 form input[type=submit] {
   border: none;
   width: auto;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000364}}
 form input[type=submit]:active, form input[type=submit]:focus {
   color: #FFF;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000370}}
 form fieldset {
   border: 1px solid #AAA;
   padding: 0 2em 1.5em 2em;
@@ -751,21 +750,21 @@ form fieldset {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000377}}
 form fieldset legend {
   margin: 0 0 0 -1em;
   padding: 0 1em;
   font-weight: bold;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000383}}
 form fieldset > label {
   margin-top: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000387}}
 form fieldset *:last-child {
   margin-bottom: 2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\0000392}}
 form input[type=checkbox], form input[type=radio] {
   display: inline-block;
   position: relative;
@@ -782,22 +781,22 @@ form input[type=checkbox], form input[type=radio] {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003105}}
 form input[type=checkbox] + label, form input[type=radio] + label {
   font-weight: normal;
   display: inline-block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003111}}
 form input[type=checkbox] {
   border-radius: 3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003114}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003114}}
 form input[type=checkbox]:active, form input[type=checkbox]:checked:active {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003118}}
 form input[type=checkbox]:checked {
   background-color: #e9ecee;
   border: 1px solid #adb8c0;
@@ -806,7 +805,7 @@ form input[type=checkbox]:checked {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003124}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003124}}
 form input[type=checkbox]:checked:after {
   content: '\2714';
   font-size: 14px;
@@ -815,11 +814,11 @@ form input[type=checkbox]:checked:after {
   left: 3px;
   color: #333;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003137}}
 form input[type=radio] {
   border-radius: 50px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003140}}
 form input[type=radio]:checked {
   background-color: #e9ecee;
   color: #99a1a7;
@@ -828,7 +827,7 @@ form input[type=radio]:checked {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1), inset 0px 0px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1), inset 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003146}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003146}}
 form input[type=radio]:checked:after {
   content: ' ';
   width: 12px;
@@ -842,14 +841,14 @@ form input[type=radio]:checked:after {
   left: 3px;
   font-size: 32px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003161}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003161}}
 form input[type=radio]:active, form input[type=radio]:checked:active {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003167}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003167}}
 #search {
   display: none;
   /* Hide search by default */
@@ -864,24 +863,24 @@ form input[type=radio]:active, form input[type=radio]:checked:active {
   -moz-box-shadow: black 0 0 5px;
   box-shadow: black 0 0 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003179}}
 #search form {
   padding-top: 0.6em;
   position: relative;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003180}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003180}}
 #search label {
   line-height: 2em;
   padding: 0 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003181}}
 #search label, #search input, #search select, #search .button {
   float: left;
   font-size: 1.2em;
   height: 2em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003187}}
 #search input[type=text] {
   width: 300px;
   margin-right: 1em;
@@ -890,17 +889,17 @@ form input[type=radio]:active, form input[type=radio]:checked:active {
   -moz-box-shadow: #999999 0 0 5px inset;
   box-shadow: #999999 0 0 5px inset;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003194}}
 #search input[type=submit] {
   line-height: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_forms\.scss}line{font-family:\00003201}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_forms\.scss}line{font-family:\00003201}}
 .map #search, .map-filtered #search {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000315}}
 .button {
   display: inline-block;
   padding: 0 2em;
@@ -915,51 +914,51 @@ form input[type=radio]:active, form input[type=radio]:checked:active {
   -o-transition: all 0.05s linear;
   transition: all 0.05s linear;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000327}}
 .button:hover, .button.hover {
   background: #b5176b;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000331}}
 .button:active, .button.active {
   background: #cc1a79;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000335}}
 .button.small {
   font-size: 0.8em;
   padding: 0 1em 0 0;
   line-height: 1.8em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000343}}
 .button.medium, form input[type=submit] {
   font-size: 1em;
   padding: 0 2.4em;
   line-height: 2.4em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000351}}
 .button.big {
   padding: 0 3.6em;
   line-height: 2.9em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000355}}
 .button.big[class*='icon-'] {
   padding-left: 4.7em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000358}}
 .button.huge {
   padding: 0 4em;
   font-size: 1.2em;
   line-height: 3.0em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000363}}
 .button.huge[class*='icon-'] {
   padding-left: 5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000366}}
 .button[class*='icon-'] {
   text-align: left;
   padding-left: 3em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000370}}
 .button[class*='icon-']:before {
   font-size: 1.7em;
   font-family: "Pictos";
@@ -970,102 +969,102 @@ form input[type=radio]:active, form input[type=radio]:checked:active {
   left: 0.42em;
   line-height: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000379}}
 .button.icon-close:before {
   content: 'D';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000380}}
 .button.icon-help:before {
   content: '?';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000381}}
 .button.icon-key:before {
   content: 'K';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000382}}
 .button.icon-tags:before {
   content: 'z';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000383}}
 .button.icon-settings:before {
   content: 'y';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000384}}
 .button.icon-gallery:before {
   content: 'P';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000385}}
 .button.icon-mail:before {
   content: 'M';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000386}}
 .button.icon-lense:before {
   content: 'L';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000387}}
 .button.icon-music:before {
   content: 'm';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000388}}
 .button.icon-check:before {
   content: '3';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000389}}
 .button.icon-cloud:before {
   content: 'C';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000390}}
 .button.icon-rss:before {
   content: 'f';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000391}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000391}}
 .button.icon-warning:before {
   content: '!';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000392}}
 .button.icon-anchor:before {
   content: 'a';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000393}}
 .button.icon-box:before {
   content: 'b';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000394}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000394}}
 .button.icon-piechart:before {
   content: 'Z';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000395}}
 .button.icon-web:before {
   content: 'G';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000396}}
 .button.icon-twitter:before {
   content: 'B';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000397}}
 .button.icon-fan:before {
   content: 'S';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000398}}
 .button.icon-pin:before {
   content: '@';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\0000399}}
 .button.icon-list:before {
   content: 'l';
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_buttons\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_buttons\.scss}line{font-family:\00003102}}
 .button + .button {
   margin: 0 0 0 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\000031}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\000031}}
 article {
   padding: 2em;
   overflow: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\000035}}
 article .image {
   width: 100%;
   height: 200px;
@@ -1074,11 +1073,11 @@ article .image {
   border: 1px solid #666;
   margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000313}}
 article .image:hover {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000317}}
 article .image:hover:after {
   content: '.';
   display: block;
@@ -1092,7 +1091,7 @@ article .image:hover:after {
   right: 0;
   z-index: 1000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000331}}
 article .image img {
   display: block;
   width: 100%;
@@ -1101,38 +1100,38 @@ article .image img {
   margin: 10px auto;
   /*border-radius: 6px;*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000341}}
 article section {
   padding: 0.5em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000345}}
 article footer {
   border-top: 1px dotted #DDD;
   padding: 0.3em 0;
   font-size: 0.9em;
   color: #666;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000352}}
 article .list {
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000355}}
 article .list li {
   width: 50%;
   float: left;
   list-style: outside none;
   padding: 1em 0.5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000361}}
 article .list li a {
   color: #000;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000365}}
 article .list li span {
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000370}}
 article .list li .thumbnail {
   width: 200px;
   height: 200px;
@@ -1144,61 +1143,61 @@ article .list li .thumbnail {
   -moz-box-shadow: #666666 0 0 10px;
   box-shadow: #666666 0 0 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000379}}
 article .list li .thumbnail img {
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 4px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/_article\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_article\.scss}line{font-family:\0000382}}
 article .list li .title {
   width: 50%;
   font-size: 1.2em;
   padding-left: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\000032}}
 #activity {
   overflow: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\000035}}
 #activity .activity {
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\000038}}
 #activity .activity a:hover {
   text-decoration: underline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\000039}}
 #activity .activity p {
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000312}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000312}}
 #activity .activity .ss-headphones,
 #activity .activity .ss-video {
   font-size: 40px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000314}}
 #activity .activity .ss-headphones img,
 #activity .activity .ss-video img {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000316}}
 #activity .activity .thumb:hover + p {
   overflow: visible;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000318}}
 #activity .activity .thumb a {
   display: block;
   width: 100%;
   height: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000319}}
 #activity .activity .thumb a:hover {
   color: #ec008c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000324}}
 #activity .activity .thumb .ss-headphones:before,
 #activity .activity .thumb .ss-headphones.right:after,
 #activity .activity .thumb .ss-video:before,
@@ -1207,7 +1206,7 @@ article .list li .title {
   position: relative;
   top: 11px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000327}}
 #activity .activity li .thumb:hover .ss-headphones,
 #activity .activity li .thumb:hover .ss-video {
   font-size: 100px;
@@ -1216,7 +1215,7 @@ article .list li .title {
   display: table-cell;
   vertical-align: middle;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000329}}
 #activity .activity li {
   display: block;
   min-height: 61px;
@@ -1228,23 +1227,23 @@ article .list li .title {
   -o-transition: background 0.3s;
   transition: background 0.3s;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000332}}
 #activity .activity li:hover {
   background-color: #F4f4f4;
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000334}}
 #activity .activity li p {
   margin: 0;
   padding: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000335}}
 #activity .activity li .thumb:hover {
   width: 100%;
   height: 180px;
   margin-bottom: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000338}}
 #activity .activity .thumb {
   float: left;
   position: relative;
@@ -1258,16 +1257,16 @@ article .list li .title {
   -o-transition: height 0.3s;
   transition: height 0.3s;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000342}}
 #activity .activity .thumb img {
   display: block;
   height: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000344}}
 #activity .activity .thumb .ss-icon {
   display: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/activity\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/activity\.scss}line{font-family:\0000348}}
 #activity .activity .more,
 #activity .activity .less {
   width: 24px;
@@ -1279,24 +1278,24 @@ article .list li .title {
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/susy\/_grid\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/susy\/_grid\.scss}line{font-family:\0000314}}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000317}}
 body {
   padding: 2em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000318}}
 a {
   color: #369;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000320}}
 #header, #footer {
   display: block;
   width: 100%;
@@ -1307,16 +1306,16 @@ a {
   z-index: 10000;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000330}}
 #header a, #footer a {
   color: #FFF;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000333}}
 #header {
   top: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000336}}
 #header h1 {
   width: 10em;
   position: absolute;
@@ -1327,33 +1326,33 @@ a {
   line-height: 2em;
   background-size: contain;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000344}}
 #header nav {
   display: block;
   padding-left: 10em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000347}}
 #header nav li {
   line-height: 2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000352}}
 #footer {
   bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000355}}
 #footer a {
   line-height: 2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000374}}
 #container {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000378}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000378}}
 .section {
   display: none;
   *zoom: 1;
@@ -1369,13 +1368,13 @@ a {
   /*@include at-breakpoint($medium-columns) { @include susy-grid-background; }*/
   /*@include at-breakpoint($large-columns) { @include susy-grid-background; }*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/2\.0\.0\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/usr\/lib\/ruby\/gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
 .section:after {
   content: "";
   display: table;
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000387}}
 .section .column {
   height: 100%;
   z-index: 900;
@@ -1385,45 +1384,45 @@ a {
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000395}}
 .section .column.left, .section .column.right {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003105}}
 .show-left .section .column.left {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 @media (min-width: 32em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\0000399}}
   .section .column.left {
     opacity: 1;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003109}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003109}}
   .show-right .section .column.left {
     opacity: 0;
   }
 }
 @media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003113}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003113}}
   .section .column.left, .show-right .section .column.left {
     opacity: 1;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003132}}
 .show-right .section .column.right {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 @media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003126}}
   .section .column.right {
     opacity: 1;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003141}}
 .column.left {
   width: 80%;
   float: left;
@@ -1431,12 +1430,12 @@ a {
   display: inline;
   margin-left: -100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003145}}
 .show-left .column.left {
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003148}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003148}}
 .column.map {
   width: 100%;
   float: left;
@@ -1444,12 +1443,12 @@ a {
   display: inline;
   margin-right: -100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003152}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003152}}
 .show-right .column.map {
   margin-left: -80%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003155}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003155}}
 .column.right {
   margin-right: -100%;
   width: 80%;
@@ -1458,65 +1457,65 @@ a {
   *margin-left: 0em;
   display: inline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003159}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003159}}
 .show-right .column.right {
   margin-right: 0;
 }
 
 @media (min-width: 32em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003168}}
   [href="#left"] {
     visibility: hidden;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003170}}
   .column.left {
     width: 37.5%;
     float: left;
     margin-right: 0%;
     margin-left: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003173}}
   .show-right .column.left {
     margin-left: -100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003176}}
   .column.map {
     width: 62.5%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003178}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003178}}
   .show-right .column.map {
     margin-left: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003181}}
   .column.right {
     width: 37.5%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003183}}
   .show-right .column.right {
     margin-right: 0;
   }
 }
 @media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003191}}
   [href="#right"] {
     visibility: hidden;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003194}}
   .show-right .column.left {
     margin-left: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003197}}
   .section {
     width: 100%;
     max-width: 100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003201}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003201}}
   .column.left,
   .column.map,
   .column.right {
@@ -1524,7 +1523,13 @@ a {
   }
 }
 /* --- Sections --- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/koko\/Sites\/rhyndo\/nodesandviews\/_sass\/app\.scss}line{font-family:\00003206}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003206}}
 .explore .section#explore {
   display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/app\.scss}line{font-family:\00003209}}
+#pin {
+  height: 100%;
+  overflow: auto;
 }
