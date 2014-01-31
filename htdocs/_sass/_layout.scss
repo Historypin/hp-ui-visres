@@ -23,7 +23,7 @@ a { color: #369; }
 
 #header, #footer {
 	width: 100%; 
-	position: absolute;
+	position: fixed;
 	left: 0;
 	z-index: 10000;
 	overflow: hidden; 
@@ -78,7 +78,6 @@ a { color: #369; }
 	
 .section { 
 	display: none; 
-	@include container;
 	height: 100%; 
 	overflow: hidden;
 
@@ -89,104 +88,27 @@ a { color: #369; }
 		@include transition(.3s all ease);
 	}
 
-	.column.left, .column.right {
-		@include opacity(0);
-	}
-
-	.column.left {
-
-		.show-left & { @include opacity(1); }
-
-		@include at-breakpoint($medium-columns) {
-			@include opacity(1);
-			.show-right & { @include opacity(0); }
-		}
-
-		@include at-breakpoint($large-columns) {
-			&, .show-right & { @include opacity(1); }
-		}
-
+	.column.c3b {
+		padding-left: 50%; 
+		/*@include opacity(0);*/
 	}
 
 	.column.map {
-
+		width: 100%;
+		height: 100%;
+		position: fixed !important; 
+		left: 0;
+		top: $headerHeight;
 	}
 
-	.column.right {
+	&.pin-active .column.map {
+		width: 50%;
+	}
+
+	.column.c3b {
 		.show-right & { @include opacity(1); }
-
-		@include at-breakpoint($large-columns) { @include opacity(1); }
 	}
 }
-
-$anchor : 1;
-$side   : $total-columns - $anchor;
-
-.column.left {
-
-	@include span-columns($side);
-	margin-left: -100%;
-	
-	.show-left & { margin-left: 0; }
-}
-
-.column.map { 
-
-	@include span-columns($total-columns);
-	margin-right: -100%;
-	
-	.show-right & { margin-left: - space($side); }
-}
-
-.column.right {
-
-	margin-right: -100%;
-	@include span-columns($side omega);
-
-	.show-right & { margin-right: 0; }
-}
-
-$main : 5;
-$side : $medium-columns - $main;
-
-@include at-breakpoint($medium-columns) {
-
-	[href="#left"] { visibility: hidden; }
-
-	.column.left {
-		@include span-columns($side);
-		margin-left: 0;
-		.show-right & { margin-left: - 100%; }
-	}
-
-	.column.map {
-		width: columns($main);
-		.show-right & { margin-left: 0; }
-	}
-
-	.column.right {
-		width: columns($side);
-		.show-right & { margin-right: 0; }
-	}
-}
-		
-$main : 8;
-$side : ($large-columns - $main)/2;
-
-@include at-breakpoint($large-columns) {
-	[href="#right"] { visibility: hidden; }
-
-	.column.left {
-		.show-right & { margin-left: 0; }
-	}
-
-	.section { width: 100%; max-width: 100%; }
-
-	.column.left,
-	.column.map,
-	.column.right { width: 33.33%;  }
-}
-
 
 /* --- Sections --- */
 .explore .section#explore { display: block; }

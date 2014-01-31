@@ -12,12 +12,6 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_reset\.scss}line{font-family:\000037}}
-html, body, #wrapper {
-  height: 100%;
-  overflow: hidden;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_reset\.scss}line{font-family:\000039}}
 a {
   text-decoration: none;
 }
@@ -35,7 +29,7 @@ a {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000324}}
 #header, #footer {
   width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   z-index: 10000;
   overflow: hidden;
@@ -102,23 +96,10 @@ a {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000379}}
 .section {
   display: none;
-  *zoom: 1;
-  max-width: 64em;
-  _width: 64em;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
   height: 100%;
   overflow: hidden;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/usr\/lib\/ruby\/gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
-.section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000384}}
 .section .column {
   height: 100%;
   z-index: 900;
@@ -127,151 +108,36 @@ a {
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000392}}
-.section .column.left, .section .column.right {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000391}}
+.section .column.c3b {
+  padding-left: 50%;
+  /*@include opacity(0);*/
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000398}}
-.show-left .section .column.left {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-@media (min-width: 32em) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\0000396}}
-  .section .column.left {
-    opacity: 1;
-  }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003102}}
-  .show-right .section .column.left {
-    opacity: 0;
-  }
+.section .column.map {
+  width: 100%;
+  height: 100%;
+  position: fixed !important;
+  left: 0;
+  top: 6em;
 }
-@media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003106}}
-  .section .column.left, .show-right .section .column.left {
-    opacity: 1;
-  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003104}}
+.section.pin-active .column.map {
+  width: 50%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003116}}
-.show-right .section .column.right {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003109}}
+.show-right .section .column.c3b {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-@media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003115}}
-  .section .column.right {
-    opacity: 1;
-  }
-}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003125}}
-.column.left {
-  width: 80%;
-  float: left;
-  margin-right: 0%;
-  display: inline;
-  margin-left: -100%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003130}}
-.show-left .column.left {
-  margin-left: 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003133}}
-.column.map {
-  width: 100%;
-  float: left;
-  margin-right: 0%;
-  display: inline;
-  margin-right: -100%;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003138}}
-.show-right .column.map {
-  margin-left: -80%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003141}}
-.column.right {
-  margin-right: -100%;
-  width: 80%;
-  float: right;
-  margin-right: 0;
-  *margin-left: 0em;
-  display: inline;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003146}}
-.show-right .column.right {
-  margin-right: 0;
-}
-
-@media (min-width: 32em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003154}}
-  [href="#left"] {
-    visibility: hidden;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003156}}
-  .column.left {
-    width: 37.5%;
-    float: left;
-    margin-right: 0%;
-    margin-left: 0;
-  }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003159}}
-  .show-right .column.left {
-    margin-left: -100%;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003162}}
-  .column.map {
-    width: 62.5%;
-  }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003164}}
-  .show-right .column.map {
-    margin-left: 0;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003167}}
-  .column.right {
-    width: 37.5%;
-  }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003169}}
-  .show-right .column.right {
-    margin-right: 0;
-  }
-}
-@media (min-width: 64em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003177}}
-  [href="#right"] {
-    visibility: hidden;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003180}}
-  .show-right .column.left {
-    margin-left: 0;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003183}}
-  .section {
-    width: 100%;
-    max-width: 100%;
-  }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003187}}
-  .column.left,
-  .column.map,
-  .column.right {
-    width: 33.33%;
-  }
-}
 /* --- Sections --- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003192}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003114}}
 .explore .section#explore {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003194}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/git\/github\.com\/wawwd-hp-ui-visres\/htdocs\/_sass\/_layout\.scss}line{font-family:\00003116}}
 #pin {
   height: 100%;
   overflow: auto;

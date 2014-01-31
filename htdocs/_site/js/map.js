@@ -88,10 +88,15 @@ map.init = function(){
 
 					//app.changeSection('explore pin', pin);
 					app.openPin(pin);
+		
+					//google.maps.event.trigger(map.instance, 'resize'); 
+					setTimeout(function(){
+						google.maps.event.trigger(map.instance, 'resize'); 
+						map.instance.setZoom(17);
+						map.globals.curLatLng = ''+pin.t, pin.g+'';
+						map.instance.setCenter(pin.t, pin.g);
+					}, 500);
 
-					map.instance.setZoom(17);
-					map.globals.curLatLng = ''+pin.t, pin.g+'';
-					map.instance.setCenter(pin.t, pin.g);
 
 					$('[href="#right"]:visible').click();
 
