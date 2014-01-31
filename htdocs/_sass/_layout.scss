@@ -1,0 +1,194 @@
+$layoutDebug	  : true;
+
+// --- Grid options ---------------------------------------------------------
+// Mobile first approach. Starting from a grid if 5 colums each having a width of 4em 
+// then as the space allows grow the grid to 8 and 16 columns.
+
+$total-columns    : 5;
+$column-width     : 4em;
+$gutter-width     : 0em;
+$grid-padding     : 0;
+
+$medium-columns   : 8;
+$large-columns    : 16;
+
+$container-width  : container-outer-width($large-columns);
+
+$headerHeight: 6em;
+$footerHeight: 2em;
+
+body { padding: $headerHeight 0 $footerHeight 0; }
+
+a { color: #369; }
+
+#header, #footer {
+	width: 100%; 
+	position: absolute;
+	left: 0;
+	z-index: 10000;
+	overflow: hidden; 
+	background: #090;
+
+	a { color: #FFF; }
+}
+
+#header {
+	height: $headerHeight;
+	top: 0; 
+
+	h1 {
+		width: 10em;
+		position: absolute; left: 1em; top: 0;
+		height: 100%;
+		font-size: 1em; line-height: $footerHeight;
+		background-size: contain; 
+	}
+
+	nav {
+		display: block; padding-left: 10em; 
+
+		li { line-height: 2em; }
+	}
+
+	#banner {
+		height: $headerHeight - $footerHeight;
+		padding: 0 2em; 
+		line-height: $headerHeight - $footerHeight;
+		background: #FFF;
+		font-weight: bold; 
+		text-align: right; 
+		border-bottom: 2px solid #090; 
+	}
+}
+
+#footer {
+	height: $footerHeight;
+	bottom: 0;
+
+	a { line-height: 2em; }
+}
+
+#wrapper {
+	 
+}
+
+#container {
+	width: 100%; height: 100%; position: relative; 
+}	
+	
+.section { 
+	display: none; 
+	@include container;
+	height: 100%; 
+	overflow: hidden;
+
+	.column {
+		height: 100%;
+		z-index: 900; 
+
+		@include transition(.3s all ease);
+	}
+
+	.column.left, .column.right {
+		@include opacity(0);
+	}
+
+	.column.left {
+
+		.show-left & { @include opacity(1); }
+
+		@include at-breakpoint($medium-columns) {
+			@include opacity(1);
+			.show-right & { @include opacity(0); }
+		}
+
+		@include at-breakpoint($large-columns) {
+			&, .show-right & { @include opacity(1); }
+		}
+
+	}
+
+	.column.map {
+
+	}
+
+	.column.right {
+		.show-right & { @include opacity(1); }
+
+		@include at-breakpoint($large-columns) { @include opacity(1); }
+	}
+}
+
+$anchor : 1;
+$side   : $total-columns - $anchor;
+
+.column.left {
+
+	@include span-columns($side);
+	margin-left: -100%;
+	
+	.show-left & { margin-left: 0; }
+}
+
+.column.map { 
+
+	@include span-columns($total-columns);
+	margin-right: -100%;
+	
+	.show-right & { margin-left: - space($side); }
+}
+
+.column.right {
+
+	margin-right: -100%;
+	@include span-columns($side omega);
+
+	.show-right & { margin-right: 0; }
+}
+
+$main : 5;
+$side : $medium-columns - $main;
+
+@include at-breakpoint($medium-columns) {
+
+	[href="#left"] { visibility: hidden; }
+
+	.column.left {
+		@include span-columns($side);
+		margin-left: 0;
+		.show-right & { margin-left: - 100%; }
+	}
+
+	.column.map {
+		width: columns($main);
+		.show-right & { margin-left: 0; }
+	}
+
+	.column.right {
+		width: columns($side);
+		.show-right & { margin-right: 0; }
+	}
+}
+		
+$main : 8;
+$side : ($large-columns - $main)/2;
+
+@include at-breakpoint($large-columns) {
+	[href="#right"] { visibility: hidden; }
+
+	.column.left {
+		.show-right & { margin-left: 0; }
+	}
+
+	.section { width: 100%; max-width: 100%; }
+
+	.column.left,
+	.column.map,
+	.column.right { width: 33.33%;  }
+}
+
+
+/* --- Sections --- */
+.explore .section#explore { display: block; }
+
+#pin { height: 100%; overflow: auto; }

@@ -1,10 +1,9 @@
-* {
-	margin: 0; padding: 0; 
-}
+// Turn on box-sizing border-box. This is a helper mixin from Susy
+// http://susy.oddbird.net/guides/reference/#ref-border-box-mixin
+@include border-box-sizing;
 
-html, body, #wrapper { 
-	height: 100%;
-	overflow: hidden; 
-}
+* { margin: 0; padding: 0; }
+
+html, body, #wrapper { height: 100%; overflow: hidden;; }
 
 a { text-decoration: none;  }

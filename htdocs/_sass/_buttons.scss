@@ -36,67 +36,24 @@ $shareButtonSize: 2em;
 		font-size: 0.8em; 
 		padding: 0 1em 0 0;
 		line-height: 1.8em; 
-
-		&[class*='icon-'] { }
 	}
 	
 	&.medium {
 		font-size: 1em; 
 		padding: 0 $paddingMedium;
 		line-height: 2.4em; 
-
-		&[class*='icon-'] { }
 	}
 
 	&.big {
 		padding: 0 $paddingBig; 
 		line-height: 2.9em; 
-
-		&[class*='icon-'] { padding-left: $paddingBig+1.1em; }
 	}
 	
 	&.huge {
 		padding: 0 $paddingHuge; 
 		font-size: 1.2em; 
 		line-height: 3.0em; 
-
-		&[class*='icon-'] { padding-left: $paddingHuge+1; }
 	}
-
-	&[class*='icon-'] {
-		text-align: left; 
-		padding-left: $paddingDefault+1;
-	
-		&:before {
-			font-size: $iconSize;
-			font-family: "Pictos";
-			width: 1em; height: 100%; 
-			position: absolute; top: 0; left: 0.42em;
-			line-height: 1em; 
-		}
-	}
-
-	&.icon-close:before		{ content: 'D'; }
-	&.icon-help:before		{ content: '?'; }
-	&.icon-key:before		{ content: 'K'; }
-	&.icon-tags:before		{ content: 'z'; }
-	&.icon-settings:before	{ content: 'y'; }
-	&.icon-gallery:before	{ content: 'P'; }
-	&.icon-mail:before		{ content: 'M'; }
-	&.icon-lense:before		{ content: 'L'; }
-	&.icon-music:before		{ content: 'm'; }
-	&.icon-check:before		{ content: '3'; }
-	&.icon-cloud:before		{ content: 'C'; }
-	&.icon-rss:before		{ content: 'f'; }
-	&.icon-warning:before	{ content: '!'; }
-	&.icon-anchor:before	{ content: 'a'; }
-	&.icon-box:before		{ content: 'b'; }
-	&.icon-piechart:before	{ content: 'Z'; }
-	&.icon-web:before		{ content: 'G'; }
-	&.icon-twitter:before	{ content: 'B'; }
-	&.icon-fan:before		{ content: 'S'; }
-	&.icon-pin:before		{ content: '@'; }
-	&.icon-list:before		{ content: 'l'; }
 }
 
 .button + .button { margin: 0 0 0 1em;  }

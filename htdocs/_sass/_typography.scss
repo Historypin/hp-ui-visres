@@ -1,0 +1,21 @@
+body, input, textarea, select, option, table {
+
+	// Select font
+	font-family: "PT Sans", Verdana, sans-serif;
+
+}
+
+body { 
+
+	// Set font size to 14px
+	font-size: 87.5%;
+
+	// Set unitless line height so that it is not needed to be redefined when changing font-size
+	line-height: 1.5; 
+
+} 
+
+// --- White space rules ------------------------------------------------------------
+p, ul, ol {
+	padding-bottom: 1em; 
+}
