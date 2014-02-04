@@ -149,7 +149,7 @@ app.openPin = function(pin){
 
 	$('#explore').addClass("pin-active");
 
-	console.log(pin);
+	//console.log(pin);
 
 	$pin = 
 	'<article>' +
@@ -180,7 +180,7 @@ var windowWidth = $(window).width(),
 	windowHeight = $(window).height();	
 
 function setMapHeight(){
-	console.log( $(window).height() - ( $('#header').height() + $('#footer').height() ) );
+	//console.log( $(window).height() - ( $('#header').height() + $('#footer').height() ) );
 	$('#map-holder').height( $(window).height() - ( $('#header').height() + $('#footer').height() ) );
 	google.maps.event.trigger(map.instance, 'resize');
 }
