@@ -1,8 +1,10 @@
-
 var debug = true;
 
 var windowWidth = $(window).width();		
 var windowHeight = $(window).height();	
+
+var pinIcon = '../images/pin.png';
+var pinIconSelected = '../images/pin-selected.png';
 
 function de(data){
 	if(debug){
@@ -15,7 +17,7 @@ app = {}
 
 app.globals = {
 	//pinList: [ 7130177 ],
-	pinList: [ 7130177, 6042084, 6655115, 7074021, 7202238, 6290144, 6467781, 6498053, 2512044, 7187505, 7127021 ],
+	pinList: [ 7130177, 6042084, 6655115, 7074021, 7202238, 6290144, 6467781, 6498053, 2512044, 7187505, 7127021, 2865, 210485, 1446, 857, 26367, 34188 ],
 	curLatLng: new google.maps.LatLng(51.42802, -0.175099),
 }
 
@@ -42,6 +44,7 @@ app.init = function(){
 		lng: -0.175099
 	});
 
+
 	$.each(app.globals.pinList, function(){
 		
 		var pinID = this+'';
@@ -53,21 +56,44 @@ app.init = function(){
 			map.addMarker({
 				lat: pin.t,
 				lng: pin.g,
-				animation: google.maps.Animation.DROP,
+				icon: pinIcon,
 				title: pin.c,
+				snippet: pin.d,
 				infoWindow: {
 					content: pin.c
 				},
 				click: function(e) {
 					
-					//de('You clicked in this marker');
-					
-					app.openPin(pin);
-					google.maps.event.trigger(map, 'resize'); 
-					map.setCenter(pin.t, pin.g);
+					de(this.active);
 
-					//map.setZoom(17);
-					//app.globals.curLatLng = ''+pin.t, pin.g+'';
+					if( this.active != true ){
+
+						$.each(map.markers, function(){
+							this.setIcon(pinIcon);
+							this.active = false;
+						});
+
+						this.active = true;
+						this.setIcon(pinIconSelected);
+
+						$('#explore').addClass("pin-active");
+
+						app.loadPin(pin);
+						//map.setZoom(17);
+						map.refresh();
+						map.setCenter(pin.t, pin.g);
+						
+					} else {
+
+						this.active = false;
+
+						$('#explore').removeClass("pin-active");
+
+						app.clearLoadedPins();
+
+						map.refresh();
+
+					}
 
 				}
 			});
@@ -84,9 +110,13 @@ app.init = function(){
 	});
 }
 
-app.openPin = function(pin){
-	
-	$('#explore').addClass("pin-active");
+app.clearLoadedPins = function(){
+
+	$('#pin').find('article').remove();
+
+}
+
+app.loadPin = function(pin){
 
 	// TODO: Add debug info
 	// de(pin);
@@ -102,17 +132,16 @@ app.openPin = function(pin){
 			'<strong>' + pin.d + '</strong>, Pinned by <a href="#">' + pin.u + '</a></p>' +
 		'</header>' +
 		'<section>' +
-			'<p>' + pin.C + '</p>' +
+			((pin.C != undefined) ? '<p><strong>Description</strong><br>' + pin.C + '</p>' : '') +
+			((pin.K != undefined) ? '<p><strong>Tags</strong><br>' + pin.K + '</p>' : '') +
 		'</section>' +
 		'<footer>' +
-			'<p><strong>Archive:</strong> ' + pin.u + '</p>' +
-			//'<p><strong>Author:</strong> ' + data.info.author + '</p>' +
-			//'<p><strong>License:</strong> ' + data.info.license + '</p>' +
-			//'<p><strong>Copyright:</strong> ' + data.info.copyright + '</p>' +
-			((pin.K != undefined) ? '<p><strong>Tags:</strong> ' + pin.K + '</p>' : '') +
+			((pin.u != undefined) ? '<p><strong>Archive:</strong> ' + pin.u + '</p>' : '') +
 		'</footer>' +
 	'</article>';
 	
+	app.clearLoadedPins();
+
 	$('#pin').append($pin);
 }
 

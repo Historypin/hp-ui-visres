@@ -28,7 +28,7 @@ nav {
 	}
 }
 
-#logout-toggle, #profile-toggle, #pin-toggle {
+#btn-logout, #btn-profile, #btn-pin {
 	display: none;
 
 	.logged & {
@@ -36,14 +36,13 @@ nav {
 	}
 }
 
-.logged #login-toggle {
+.logged #btn-login {
 	display: none;
 }
-		
-#tabs > ul {
-	padding: 0; margin: 0; 
 
-	li { display: block; list-style: none outside; padding: 0; margin: 0; }
-	li a { display: block; color: #000; font-weight: bold; text-align: center; border-bottom: 1px solid #CCC; line-height: 1em; padding: 1em 0; }
-	li a:hover { background: #EEE; }
+#btn-pin { 
+	display: block;
+	background: #ec008c; 
+	color: #FFF !important;
+	padding: 0 2em; 
 }

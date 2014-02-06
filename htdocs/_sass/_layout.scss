@@ -14,8 +14,8 @@ $large-columns    : 16;
 
 $container-width  : container-outer-width($large-columns);
 
-$headerHeight: 2em;
-$footerHeight: 2em;
+$headerHeight: 3em;
+$footerHeight: 3em;
 
 body { padding: $headerHeight 0 $footerHeight 0; }
 
@@ -27,33 +27,36 @@ a { color: #369; }
 	left: 0;
 	z-index: 10000;
 	overflow: hidden; 
-	background: #090;
+	background: #FFF;
 
-	a { color: #FFF; }
+	a { color: #666; }
 }
 
 #header {
 	height: $headerHeight;
 	top: 0; 
+	border-bottom: 2px solid #DDD; 
 
 	h1 {
 		width: 10em;
 		position: absolute; left: 1em; top: 0;
 		height: 100%;
-		font-size: 1em; line-height: $footerHeight;
-		background-size: contain; 
+		text-indent: -1920px; 
+		background: url(../images/logo.png) left center no-repeat; 
+		background-size: auto 70%; 
 	}
 
 	nav {
 		display: block; padding-left: 10em; 
 
-		li { line-height: 2em; }
+		li { line-height: $headerHeight; }
 	}
 
 }
 
 #banner {
-	border-bottom: 2px solid #090; position: relative;  z-index: 1000; 
+	border-bottom: 2px solid #090; position: relative; z-index: 1000; 
+
 	h3 { position: absolute; bottom: 10px; left: 10px; font-size: 1.4em; background: rgba(0, 0, 0, 0.7); color: #FFF; padding: 1em 2em;  }
 
 	img { display: block; max-width: 100%; }
@@ -62,8 +65,10 @@ a { color: #369; }
 #footer {
 	height: $footerHeight;
 	bottom: 0;
+	border-top: 2px solid #DDD; 
+	
 
-	a { line-height: 2em; }
+	a { line-height: $footerHeight; }
 }
 
 #wrapper {
@@ -75,19 +80,18 @@ a { color: #369; }
 }	
 	
 .section { 
-	display: none; 
 	height: 100%; 
 	overflow: hidden;
 
 	.column {
 		height: 100%;
 		z-index: 900; 
-
-		//@include transition(.3s all ease);
 	}
 
 	.column.c3b {
-		/*@include opacity(0);*/
+
+		@include transition(.3s all ease);
+		@include opacity(0);
 	}
 
 	.column.map {
@@ -97,19 +101,17 @@ a { color: #369; }
 	}
 
 	&.pin-active {
-		padding-left: 50%; 
+		padding-left: 35%; 
 
 		.column.map {
-			width: 50%;
+			width: 35%;
+			border-right: 2px solid #DDD; 
 		}	
-	}
 
-	.column.c3b {
-		.show-right & { @include opacity(1); }
+		.column.c3b {
+			@include opacity(1);
+		}
+		
 	}
 }
 
-/* --- Sections --- */
-.explore .section#explore { display: block; }
-
-#pin { height: 100%; overflow: auto; }
