@@ -1,4 +1,5 @@
-var debug = true;
+var debug = false;
+var smallBannerHeight = 100;
 
 var windowWidth = $(window).width();		
 var windowHeight = $(window).height();	
@@ -23,8 +24,18 @@ app.globals = {
 
 app.recalculateHeight = function(){
 	
+	var	scrollTop = $(window).scrollTop();
+	
+	de( 
+	   'scrollTop: '			+ scrollTop  + ', ' +
+	   'mapHeight: '			+ ($(window).height() - ( $('#header').height() + smallBannerHeight + $('#footer').height() )) + ', ' +
+	   'bbh: '					+ $('.banner').height() + ', ' +
+	   'sbh: '					+ smallBannerHeight + ', ' +
+	   'windowHeight: '			+ $(window).height() + ', ' 
+	);
+
 	// Calculate the space avalable for the map
-	$('#map-holder').height( $(window).height() - ( $('#header').height() + $('#footer').height() ) );
+	$('#map-holder').height( $(window).height() - ( $('#header').height() + smallBannerHeight + $('#footer').height() ) );
 
 	// Resize the map to fit the avalable space
 	google.maps.event.trigger(map, 'resize');
@@ -64,8 +75,6 @@ app.init = function(){
 				},
 				click: function(e) {
 					
-					de(this.active);
-
 					if( this.active != true ){
 
 						$.each(map.markers, function(){
@@ -101,41 +110,45 @@ app.init = function(){
 		});
 
 	});
-	
-	app.recalculateHeight();
 
 	// Make sure the map is resized with the window
-	$(window).resize(function() {
-		app.recalculateHeight();
-	});
+	$(window)
+		.resize(app.recalculateHeight)
+		.scroll(app.recalculateHeight)
+		.trigger('scroll')
+		.trigger('resize');
 }
 
 app.clearLoadedPins = function(){
-
 	$('#pin').find('article').remove();
-
 }
 
 app.loadPin = function(pin){
 
 	// TODO: Add debug info
-	// de(pin);
 
 	$pin = 
 	'<article class="pin">' +
+		'<header>' +
+			'<h2>' + pin.c + '</h2>' +
+			'Pinned by <a href="#">' + pin.u + '</a></p>' +
+		'</header>' +
 		'<div class="image">' +
 			'<img src="' + hp.urls.image(pin.i, 600, 600, 80, false) + '">' +
 		'</div>' +
-		'<header>' +
-			'<h2>' + pin.c + '</h2>' +
-			'<p>' + pin.G + '<br>' +
-			'<strong>' + pin.d + '</strong>, Pinned by <a href="#">' + pin.u + '</a></p>' +
-		'</header>' +
-		'<section>' +
+		'<section class="content">' +
 			((pin.C != undefined) ? '<p><strong>Description</strong><br>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
+			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
 			((pin.K != undefined) ? '<p><strong>Tags</strong><br>' + pin.K + '</p>' : '') +
 		'</section>' +
 		'<footer>' +
+			'<p><strong>' + pin.d + '</strong>, ' + pin.G + '<br>' +
 			((pin.u != undefined) ? '<p><strong>Archive:</strong> ' + pin.u + '</p>' : '') +
 		'</footer>' +
 	'</article>';
@@ -143,6 +156,7 @@ app.loadPin = function(pin){
 	app.clearLoadedPins();
 
 	$('#pin').append($pin);
+
 }
 
 // On document load initialize the app

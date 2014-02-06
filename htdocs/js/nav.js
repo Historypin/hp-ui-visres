@@ -18,7 +18,12 @@ nav.init = function(){
 	});
 
 	$('#btn-pin').click(function(){
-		alert('Sorry, no pinner is available yet. ;)');
+		alert('Sorry, no pinner is available yet');
+		return false;
+	});
+
+	$('#footer a').click(function(){
+		alert('Sorry, no linking just yet');
 		return false;
 	});
 

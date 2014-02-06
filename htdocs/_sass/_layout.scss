@@ -23,10 +23,7 @@ a { color: #369; }
 
 #header, #footer {
 	width: 100%; 
-	position: fixed;
-	left: 0;
-	z-index: 10000;
-	overflow: hidden; 
+	position: fixed; left: 0; overflow: hidden; z-index: 10000;
 	background: #FFF;
 
 	a { color: #666; }
@@ -38,12 +35,11 @@ a { color: #369; }
 	border-bottom: 2px solid #DDD; 
 
 	h1 {
-		width: 10em;
-		position: absolute; left: 1em; top: 0;
-		height: 100%;
+		width: 10em; height: 100%;
+		position: absolute; left: 0.6em; top: 0;
 		text-indent: -1920px; 
 		background: url(../images/logo.png) left center no-repeat; 
-		background-size: auto 70%; 
+		background-size: auto 60%; 
 	}
 
 	nav {
@@ -54,25 +50,32 @@ a { color: #369; }
 
 }
 
-#banner {
-	border-bottom: 2px solid #090; position: relative; z-index: 1000; 
+.banner {
+	overflow: hidden; 
+	border-bottom: 2px solid #DDD; position: relative; z-index: 1000; 
 
-	h3 { position: absolute; bottom: 10px; left: 10px; font-size: 1.4em; background: rgba(0, 0, 0, 0.7); color: #FFF; padding: 1em 2em;  }
+	h3 { 
+		font-size: 2.4em; 
+		/*position: absolute; bottom: 10px; left: 10px; */
+		/*background: rgba(0, 0, 0, 0.7); color: #FFF;*/
+		color: #000; 
+		padding: 3em 1em 0.8em 1em;
+	}
 
-	img { display: block; max-width: 100%; }
+	img { display: block; width: 100%; }
+}
+
+#floatingbanner {
+	height: 90px; 
+	position: fixed;
+	top: $headerHeight; left: 0;
 }
 
 #footer {
 	height: $footerHeight;
+	line-height: $footerHeight;
 	bottom: 0;
 	border-top: 2px solid #DDD; 
-	
-
-	a { line-height: $footerHeight; }
-}
-
-#wrapper {
-	 
 }
 
 #container {
@@ -86,32 +89,30 @@ a { color: #369; }
 	.column {
 		height: 100%;
 		z-index: 900; 
+		float: left; 
 	}
 
 	.column.c3b {
-
 		@include transition(.3s all ease);
 		@include opacity(0);
 	}
 
 	.column.map {
 		width: 100%;
-		position: fixed !important;
-		top: $headerHeight; left: 0;
 	}
 
 	&.pin-active {
-		padding-left: 35%; 
 
 		.column.map {
-			width: 35%;
+			width: 40%;
 			border-right: 2px solid #DDD; 
 		}	
 
 		.column.c3b {
+			width: 60%;
 			@include opacity(1);
 		}
-		
 	}
+
 }
 

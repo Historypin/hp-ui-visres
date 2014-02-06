@@ -19,12 +19,10 @@ article {
 		}
 	}
 
-	section {
+	section.content {
 		padding: 1em 0 1.5em 0; overflow: hidden; 
-		border-top: 1px dotted #DDD;
-		border-bottom: 1px dotted #DDD;
 
-		p { 
+		p.column { 
 			width: 50%;
 			float: left; 
 			padding: 0 1em 0 0; 
