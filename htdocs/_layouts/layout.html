@@ -28,15 +28,12 @@
 			<h1 ><a href="/">Historypin</a></h1>
 			<nav>
 				<ul>
-					<li><a href="#right" class="toggle">show-right</a></li>
-					<li><a href="#left" class="toggle">show-left</a></li>
 					<!--<li><a href="/">Home</a></li>-->
 					<!--<li><a class="layout-toggle" data-layout="explore" href="#">Explore</a></li>-->
 
-					<li class="right"><a id="login-toggle" href="/user/">Login</a></li>
-					<li class="right"><a id="logout-toggle" href="/user/">Logout</a></li>
-					<li class="right"><a id="profile-toggle" class="layout-toggle" data-layout="profile" href="#">My Channel</a></li>
-					<li class="right"><a id="pin-toggle"  class="layout-toggle" data-layout="pinner" href="#">Pin</a></li>
+					<li class="right"><a id="btn-login" href="/user/">Login</a></li>
+					<li class="right"><a id="btn-logout" href="/user/">Logout</a></li>
+					<li class="right"><a id="btn-pin" href="#">Pin something</a></li>
 				</ul>
 			</nav>
 			<div id="search">
@@ -49,10 +46,10 @@
 				</form>
 			</div>
 		</header>
-		<div id="banner">
-			<h3>Project title</h3>
-			<img src="images/project_banner.jpg">
-		</div>
+		<!--<div id="banner">-->
+			<!--<h3>Project title</h3>-->
+			<!--<img src="images/project_banner.jpg">-->
+		<!--</div>-->
 		<div id="container">	
 
 			{{ content }}
@@ -61,12 +58,6 @@
 		<footer id="footer">
 			<nav>
 				<ul> 
-					<li><a href="/" title="Home">Home</a></li>
-					<li><a href="/about-us" title="About">About</a></li>
-					<li><a href="/faq" title="FAQs">FAQs</a></li>
-					<li><a href="/presscentre" title="Press Centre">Press Centre</a></li>
-					<li><a href="/donate" title="Support us">Support us</a></li>
-					<li><a href="/app" title="App">Mobile App</a></li>
 					<li><a href="/terms-and-conditions" title="Terms of Use">Terms and Conditions</a></li>
 					<li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
 					<li><a href="/cookies" title="Privacy Policy">Cookies</a></li>
@@ -78,6 +69,7 @@
 	</div>
 
 	<div class="dialog-cover"></div>
+
 	<div class="dialog" id="login">	
 		<div class="card">
 			<div class="face">
@@ -104,43 +96,6 @@
 		<div class="win-btn close icon-close">Close</div>
 	</div>
 
-	<div class="dialog" id="profile">	
-		<div class="card">
-			<div class="face">
-
-				<hgroup>
-					<h3>Your Channel</h3>
-					<h2>Konstantin Dankov</h2>
-				</hgroup>
-				
-				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
-				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
-
-				<a href="#" class="button help-on">Edit Profile</a>
-
-			</div>
-			<div class="face help">
-
-				<h3>Edit Profile</h3>
-				
-				<form action="#" method="post">
-				    <div class="field">
-				        <label>Name</label>
-				        <input type="text" name="" value="" />
-				    </div>
-				    <div class="field">
-				        <label>Description</label>
-				        <textarea name=""></textarea>
-				    </div>
-				</form>
-
-				<a href="#" class="button pill help-off">Submit</a>
-
-			</div>
-		</div>
-		<div class="win-btn help-on icon-help">Help</div>
-		<div class="win-btn close icon-close">Close</div>
-	</div>
 
 </body>
 </html>

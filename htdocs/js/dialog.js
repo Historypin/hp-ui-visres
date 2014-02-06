@@ -9,21 +9,15 @@ dialog.init = function(){
 
 	container.addClass('dialog-ready')
 		.delegate(".dialog .close", "click", function(){
-
 			dialog.hide();
-
 			return false;
 		})
 		.delegate(".dialog .help-on", "click", function(){
-
 			popup.addClass('flipped');
-
 			return false;
 		})
 		.delegate(".dialog .help-off", "click", function(){
-
 			popup.removeClass('flipped');
-
 			return false;
 		});
 }
