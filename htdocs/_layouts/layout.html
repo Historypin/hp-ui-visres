@@ -15,7 +15,6 @@
 	<script type="text/javascript" src="js/lib/gmaps.js"></script>
 
 	<script type="text/javascript" src="js/historypin.js"></script>
-	<script type="text/javascript" src="js/dialog.js"></script>
 	<script type="text/javascript" src="js/nav.js"></script>
 
 	<script type="text/javascript" src="js/app.js"></script>
@@ -24,29 +23,44 @@
 
 	<div id="wrapper">
 		<header id="header">
-			<h1 ><a href="/">Historypin</a></h1>
-			<nav>
-				<ul>
-					<!--<li><a href="/">Home</a></li>-->
-					<!--<li><a class="layout-toggle" data-layout="explore" href="#">Explore</a></li>-->
-
-					<!--<li class="right"><a id="btn-login" href="/user/">Login</a></li>-->
-					<!--<li class="right"><a id="btn-logout" href="/user/">Logout</a></li>-->
-					<li class="right"><a id="btn-pin" href="#">Pin something</a></li>
-				</ul>
-			</nav>
-			<div id="search">
-				<form action="#" method="post">
-					<label>Search by Place</label>
-					<input type="text" name="search" placeholder="e.g. London, NYC" />
-					<input type="submit" class="button" value="Go" />
-					<label>and in </label>
-					<span class="toggle-date-filter button">Time</span>
-				</form>
+			<div class="inner">
+				<h1 ><a href="/">Historypin</a></h1>
+				<nav>
+					<ul>
+						<!--<li><a href="/">Home</a></li>-->
+						<!--<li class="right"><a id="btn-login" href="/user/">Login</a></li>-->
+						<!--<li class="right"><a id="btn-logout" href="/user/">Logout</a></li>-->
+						<li class="right"><a id="btn-pin" href="#">Pin something</a></li>
+					</ul>
+				</nav>
+				<!--<div id="search">-->
+					<!--<form action="#" method="post">-->
+						<!--<label>Search by Place</label>-->
+						<!--<input type="text" name="search" placeholder="e.g. London, NYC" />-->
+						<!--<input type="submit" class="button" value="Go" />-->
+						<!--<label>and in </label>-->
+						<!--<span class="toggle-date-filter button">Time</span>-->
+					<!--</form>-->
+				<!--</div>-->
 			</div>
 		</header>
-		<div class="banner" id="banner">
-			<h3>Project title</h3>
+		<div id="banner">
+			<div class="inner">
+
+				<h3>Project title</h3>
+
+				<a id="btn-explore" href="#banner">Explore</a>
+
+				<div class="panel">
+					<div class="description col">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliena dixit in physicis nec ea ipsa, quae tibi probarentur; Nam his libris eum malo quam reliquo ornatu villae delectari. Incommoda autem et commoda-ita enim estmata et dustmata appello-communia esse voluerunt, paria noluerunt. Duo Reges: constructio interrete. Rationis enim perfectio est virtus; Teneo, inquit, finem illi videri nihil dolere. Respondent extrema primis, media utrisque, omnia omnibus. Quis Pullum Numitorium Fregellanum, proditorem, quamquam rei publicae nostrae profuit, non odit?</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliena dixit in physicis nec ea ipsa, quae tibi probarentur; Nam his libris eum malo quam reliquo ornatu villae delectari. Incommoda autem et commoda-ita enim estmata et dustmata appello-communia esse voluerunt, paria noluerunt. Duo Reges: constructio interrete. Rationis enim perfectio est virtus; Teneo, inquit, finem illi videri nihil dolere. Respondent extrema primis, media utrisque, omnia omnibus. Quis Pullum Numitorium Fregellanum, proditorem, quamquam rei publicae nostrae profuit, non odit?</p>
+					</div>
+					<div class="sidebar col">
+						<img src="http://api.historypin.com/services/thumb/phid/857/dim/600x600/quality/80">
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="container">	
 
@@ -54,46 +68,18 @@
 
 		</div>
 		<footer id="footer">
-			<nav>
-				<ul> 
-					<li><a href="/terms-and-conditions" title="Terms of Use">Terms and Conditions</a></li>
-					<li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
-					<li><a href="/cookies" title="Privacy Policy">Cookies</a></li>
-					<li><a href="/contact" title="Contact">Contact</a></li> 
-					<li style="float: right;"><a href="http://wearewhatwedo.org" target="_blank">© We Are What We Do</a></li>
-				</ul>
-			</nav>
+			<div class="inner">
+				<nav>
+					<ul> 
+						<li><a href="/terms-and-conditions" title="Terms of Use">Terms and Conditions</a></li>
+						<li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+						<li><a href="/cookies" title="Privacy Policy">Cookies</a></li>
+						<li><a href="/contact" title="Contact">Contact</a></li> 
+						<li style="float: right;"><a href="http://wearewhatwedo.org" target="_blank">© We Are What We Do</a></li>
+					</ul>
+				</nav>
+			</div>
 		</footer>
 	</div>
-
-	<div class="dialog-cover"></div>
-
-	<div class="dialog" id="login">	
-		<div class="card">
-			<div class="face">
-
-				<h3>Login with</h3>
-
-				<a href="#" class="button medium login-button">Google+</a>
-				<a href="#" class="button medium login-button">Facebook</a>
-				<a href="#" class="button medium login-button">Twitter</a>
-
-			</div>
-			<div class="face help">
-
-				<h3>Help </h3>
-
-				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
-				<p>Proin ornare, dolor ut suscipit ultrices, enim erat laoreet mauris, a tempor metus neque in ipsum. Donec eget odio enim, a fringilla turpis. Proin molestie porttitor condimentum. Suspendisse nisi eros, vulputate a dictum nec, euismod nec mi. Praesent vel velit enim, id bibendum ligula. Vivamus vestibulum sem nec nulla volutpat consequat. Pellentesque id odio ac sem egestas pellentesque sed ac lacus.</p>
-
-				<a href="#" class="button pill help-off">Close Help</a>
-
-			</div>
-		</div>
-		<div class="win-btn help-on icon-help">Help</div>
-		<div class="win-btn close icon-close">Close</div>
-	</div>
-
-
 </body>
 </html>

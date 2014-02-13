@@ -28,18 +28,6 @@ nav {
 	}
 }
 
-#btn-logout, #btn-profile, #btn-pin {
-	display: none;
-
-	.logged & {
-		display: block; 
-	}
-}
-
-.logged #btn-login {
-	display: none;
-}
-
 #btn-pin { 
 	display: block;
 	background: #ec008c; 

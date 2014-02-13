@@ -1,5 +1,4 @@
 var debug = false;
-var smallBannerHeight = 100;
 
 var windowWidth = $(window).width();		
 var windowHeight = $(window).height();	
@@ -25,17 +24,19 @@ app.globals = {
 app.recalculateHeight = function(){
 	
 	var	scrollTop = $(window).scrollTop();
+	var bannerHeight = $('#banner').height();
 	
 	de( 
 	   'scrollTop: '			+ scrollTop  + ', ' +
-	   'mapHeight: '			+ ($(window).height() - ( $('#header').height() + smallBannerHeight + $('#footer').height() )) + ', ' +
+	   'mapHeight: '			+ ( $(window).height() - ( $('#header').height() + bannerHeight + $('#footer').height() ) ) + ', ' +
 	   'bbh: '					+ $('.banner').height() + ', ' +
-	   'sbh: '					+ smallBannerHeight + ', ' +
+	   'sbh: '					+ bannerHeight + ', ' +
 	   'windowHeight: '			+ $(window).height() + ', ' 
 	);
 
-	// Calculate the space avalable for the map
-	$('#map-holder').height( $(window).height() - ( $('#header').height() + smallBannerHeight + $('#footer').height() ) );
+	// Calculate the space avalable for the container
+	$('#map-holder').height( $(window).height() - ( $('#header').height() + bannerHeight + $('#footer').height() ) );
+	$('#pin').find('.image').height( $('#map-holder').height() );
 
 	// Resize the map to fit the avalable space
 	google.maps.event.trigger(map, 'resize');
@@ -45,7 +46,6 @@ app.recalculateHeight = function(){
 app.init = function(){
 
 	nav.init();
-	dialog.init();
 
 	map = new GMaps({
 		div: '#map-holder',
@@ -55,6 +55,7 @@ app.init = function(){
 		lng: -0.175099
 	});
 
+	$('#container').css('padding-top', $('#banner').height() );
 
 	$.each(app.globals.pinList, function(){
 		
@@ -85,7 +86,7 @@ app.init = function(){
 						this.active = true;
 						this.setIcon(pinIconSelected);
 
-						$('#explore').addClass("pin-active");
+						$('#explore').addClass('pin-active');
 
 						app.loadPin(pin);
 						//map.setZoom(17);
@@ -96,7 +97,7 @@ app.init = function(){
 
 						this.active = false;
 
-						$('#explore').removeClass("pin-active");
+						$('#explore').removeClass('pin-active');
 
 						app.clearLoadedPins();
 
@@ -129,22 +130,15 @@ app.loadPin = function(pin){
 
 	$pin = 
 	'<article class="pin">' +
+		'<div class="image">' +
+			'<img src="' + hp.urls.image(pin.i, 600, 600, 80, false) + '">' +
+		'</div>' +
 		'<header>' +
 			'<h2>' + pin.c + '</h2>' +
 			'Pinned by <a href="#">' + pin.u + '</a></p>' +
 		'</header>' +
-		'<div class="image">' +
-			'<img src="' + hp.urls.image(pin.i, 600, 600, 80, false) + '">' +
-		'</div>' +
 		'<section class="content">' +
 			((pin.C != undefined) ? '<p><strong>Description</strong><br>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
-			((pin.C != undefined) ? '<p>' + pin.C + '</p>' : '') +
 			((pin.K != undefined) ? '<p><strong>Tags</strong><br>' + pin.K + '</p>' : '') +
 		'</section>' +
 		'<footer>' +
@@ -155,7 +149,20 @@ app.loadPin = function(pin){
 	
 	app.clearLoadedPins();
 
-	$('#pin').append($pin);
+	$('#pin').append($pin).find('.image').height( $('#map-holder').height() );
+
+	setTimeout(function() {
+
+		var pinImage = $('#pin').find('.image img');
+		var iWidth = pinImage.width();
+		var iHeight = pinImage.height();
+
+		de(iWidth + ', ' + iHeight);
+
+		pinImage.css({ marginTop: -iHeight/2, marginLeft: -iWidth/2, opacity: '1' });
+
+	}, 500);
+
 
 }
 
@@ -163,4 +170,3 @@ app.loadPin = function(pin){
 $(function(){
 	app.init();
 });
-

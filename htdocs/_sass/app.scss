@@ -8,32 +8,24 @@
 // http://susy.oddbird.net/guides/reference
 @import "susy";
 
-// --- Custom code ----------------------
+// --- Reusable stuff ----------------------
 
 // Very light resets to help us start writing styled for all browsers
 @import "_reset";
 
-// Layout styles. Here are all the Media Queries that handle layout changes on different screen sizes.
-@import "_layout";
+// Very light buttons styling with some basic options like size - small, medium, big
+@import "_buttons";
+
+// --- Custom Styles ----------------------
 
 // Layout styles. Here are all the Media Queries that handle layout changes on different screen sizes.
 @import "_typography";
 
-// Styles for a dialog view. Something that can hold a temporary
-// information on state. Like AJAX driven login, or a help for a perticular feature
-@import "_dialog";
+// Layout styles. Here are all the Media Queries that handle layout changes on different screen sizes.
+@import "_layout";
 
 // Styles for the main Navigation
 @import "_navigation";
 
-// Styles to handle forms
-@import "_forms";
-
-// Very light buttons styling with some basic options like size - small, medium, big
-@import "_buttons";
-
 // Styled for Pin details view or Column 3B
 @import "_column3b";
-
-// Styled for the activity feed, ported from Historypin. 
-@import "_activity";

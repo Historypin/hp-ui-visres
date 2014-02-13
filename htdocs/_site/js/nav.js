@@ -22,6 +22,11 @@ nav.init = function(){
 		return false;
 	});
 
+	$('#btn-explore').click(function(){
+		$('#banner').toggleClass('open');
+		return false;
+	});
+
 	$('#footer a').click(function(){
 		alert('Sorry, no linking just yet');
 		return false;

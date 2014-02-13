@@ -1,18 +1,4 @@
-$layoutDebug	  : true;
-
-// --- Grid options ---------------------------------------------------------
-// Mobile first approach. Starting from a grid if 5 colums each having a width of 4em 
-// then as the space allows grow the grid to 8 and 16 columns.
-
-$total-columns    : 5;
-$column-width     : 4em;
-$gutter-width     : 0em;
-$grid-padding     : 0;
-
-$medium-columns   : 8;
-$large-columns    : 16;
-
-$container-width  : container-outer-width($large-columns);
+$layoutDebug  : true;
 
 $headerHeight: 3em;
 $footerHeight: 3em;
@@ -21,9 +7,11 @@ body { padding: $headerHeight 0 $footerHeight 0; }
 
 a { color: #369; }
 
+html, body, #wrapper { height: 100%; overflow: hidden; }
+
 #header, #footer {
 	width: 100%; 
-	position: fixed; left: 0; overflow: hidden; z-index: 10000;
+	position: absolute; left: 0; z-index: 10000;
 	background: #FFF;
 
 	a { color: #666; }
@@ -32,7 +20,6 @@ a { color: #369; }
 #header {
 	height: $headerHeight;
 	top: 0; 
-	border-bottom: 2px solid #DDD; 
 
 	h1 {
 		width: 10em; height: 100%;
@@ -48,40 +35,58 @@ a { color: #369; }
 		li { line-height: $headerHeight; }
 	}
 
+	.inner { border-bottom: 2px solid #DDD; }
 }
 
-.banner {
-	overflow: hidden; 
-	border-bottom: 2px solid #DDD; position: relative; z-index: 1000; 
-
-	h3 { 
-		font-size: 2.4em; 
-		/*position: absolute; bottom: 10px; left: 10px; */
-		/*background: rgba(0, 0, 0, 0.7); color: #FFF;*/
-		color: #000; 
-		padding: 3em 1em 0.8em 1em;
-	}
-
-	img { display: block; width: 100%; }
-}
-
-#floatingbanner {
-	height: 90px; 
-	position: fixed;
-	top: $headerHeight; left: 0;
-}
 
 #footer {
 	height: $footerHeight;
 	line-height: $footerHeight;
 	bottom: 0;
-	border-top: 2px solid #DDD; 
+
+	.inner { border-top: 2px solid #DDD; }
 }
+
+#banner {
+	/*position: relative; */
+	position: absolute; top: $headerHeight; left: 0; z-index: 1000;
+	background: #FFF; 
+
+	.panel { 
+		display: block; height: 0; overflow: hidden;
+		@include transition(.5s all ease);
+
+		.col { width: 48%; float: left; }
+		.description { margin-right: 4%; }
+		.sidebar { }
+	}
+
+	&.open .panel {
+		height: auto;
+		max-height: 1000px;
+		padding-bottom: 2em; 
+	}
+
+	h3 { font-size: 2.4em; color: #000; }
+
+	#btn-explore { 
+		display: block;
+		padding: 0.4em 1.5em; background: #FFF; 
+		position: absolute; top: 100%; left: 5%; z-index: 9999; margin: -2px 0 0 0;
+		border: 2px solid #DDD; border-top: none; 
+
+		@include border-radius(0 0 4px 4px);
+	}
+
+	.inner { border-bottom: 2px solid #DDD; padding: 1em 2em; }
+}
+
 
 #container {
 	width: 100%; height: 100%; position: relative; 
 }	
 	
+// --- Sections --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 .section { 
 	height: 100%; 
 	overflow: hidden;
@@ -104,12 +109,14 @@ a { color: #369; }
 	&.pin-active {
 
 		.column.map {
-			width: 40%;
+			width: 35%;
 			border-right: 2px solid #DDD; 
 		}	
 
 		.column.c3b {
-			width: 60%;
+			width: 65%;
+			overflow: auto;
+
 			@include opacity(1);
 		}
 	}
