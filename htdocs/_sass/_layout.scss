@@ -3,7 +3,7 @@ $layoutDebug  : true;
 $headerHeight: 3em;
 $footerHeight: 3em;
 
-body { padding: $headerHeight 0 $footerHeight 0; }
+body { padding: $headerHeight 0 0 0; }
 
 a { color: #369; }
 
@@ -40,6 +40,7 @@ html, body, #wrapper { height: 100%; overflow: hidden; }
 
 
 #footer {
+	display: none; 
 	height: $footerHeight;
 	line-height: $footerHeight;
 	bottom: 0;
@@ -72,7 +73,7 @@ html, body, #wrapper { height: 100%; overflow: hidden; }
 	#btn-explore { 
 		display: block;
 		padding: 0.4em 1.5em; background: #FFF; 
-		position: absolute; top: 100%; left: 5%; z-index: 9999; margin: -2px 0 0 0;
+		position: absolute; top: 100%; left: 45%; z-index: 9999; margin: -2px 0 0 0;
 		border: 2px solid #DDD; border-top: none; 
 
 		@include border-radius(0 0 4px 4px);

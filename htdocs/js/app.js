@@ -28,14 +28,14 @@ app.recalculateHeight = function(){
 	
 	de( 
 	   'scrollTop: '			+ scrollTop  + ', ' +
-	   'mapHeight: '			+ ( $(window).height() - ( $('#header').height() + bannerHeight + $('#footer').height() ) ) + ', ' +
+	   'mapHeight: '			+ ( $(window).height() - ( $('#header').height() + bannerHeight ) ) + ', ' +
 	   'bbh: '					+ $('.banner').height() + ', ' +
 	   'sbh: '					+ bannerHeight + ', ' +
 	   'windowHeight: '			+ $(window).height() + ', ' 
 	);
 
 	// Calculate the space avalable for the container
-	$('#map-holder').height( $(window).height() - ( $('#header').height() + bannerHeight + $('#footer').height() ) );
+	$('#map-holder').height( $(window).height() - ( $('#header').height() + bannerHeight ) );
 	$('#pin').find('.image').height( $('#map-holder').height() );
 
 	// Resize the map to fit the avalable space
@@ -169,4 +169,6 @@ app.loadPin = function(pin){
 // On document load initialize the app
 $(function(){
 	app.init();
+
+	$('#btn-explore').click();
 });
