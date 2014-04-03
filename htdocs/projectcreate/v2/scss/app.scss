@@ -1,0 +1,242 @@
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+$mainDefaultBackgroundColor: #95a5a6;
+$mainActiveBackgroundColor: #8e44ad;
+$mainActiveTextColor: #FFF;
+$finishedBackgroundColor: #27ae60;
+
+$sectionPadding: 0.5em;
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+$pageBackgroundColor: #FFF;
+$tabBackgroundColor: #bdc3c7;
+$tabActiveBackground: #e74c3c;
+$tabColor: #000;
+$tabActiveColor: #FFF;
+$tabBorderRadius: 0.5em;
+
+/* --- Imports --- --- --- --- --- --- --- --- --- --- --- --- --- */
+
+@import "compass";
+@import "compass/css3/user-interface";
+@import "compass/css3/appearance";
+
+@import "susy";
+@import "ceaser-easing";
+@import "flexing-pagination";
+@import "ladda";
+@import "ladda-theme";
+
+@import "reset";
+@import "fonts";
+@import "typography";
+@import "forms";
+@import "buttons";
+@import "layout";
+@import "tabs";
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+section.step {
+	opacity: 0; max-height: 0;
+	@include single-transition( max-height, 0.5s, ceaser($easeInOutBack) );
+
+	& > .header {
+		position: relative; 
+		background: $mainDefaultBackgroundColor; 
+		color: $mainActiveTextColor; 
+		padding: 0.6em 0.8em;
+		margin: 0 0 0.1em 0; 
+		
+		.edit, .ss-check {
+			@include single-transition( all, 0.4s, ceaser($easeInOutBack) );
+			opacity: 0;
+		}
+
+		.ss-check { position: absolute; top: 25%; right: -1em; }
+
+		.edit {
+			background: rgba(0,0,0, 0.2); 
+			padding: 0.4em 1em; 
+			margin-left: 4em; 
+			@include border-radius(1em);
+
+			.ss-icon { position: relative; top: 0.15em; left: -0.3em; }
+		}
+	}
+
+	&:last-child > .header { margin-bottom: 0; }
+
+	& > .content {
+		overflow: hidden;
+		max-height: 0;
+
+		@include single-transition( max-height, 0.4s, ease-in );
+		
+		.inner { padding: $sectionPadding; }
+
+		.footer {
+			text-align: right; 
+			padding-top: $sectionPadding;
+			overflow: hidden; 
+		}
+	}
+
+	&.finished {
+		opacity: 1; max-height: 1200px;
+
+		& > .header {
+			background: $finishedBackgroundColor; 
+
+			.ss-check { right: 1em; opacity: 1; }
+
+			&:hover {
+				cursor: pointer;
+
+				.edit { opacity: 1; margin-left: 1em; }
+			}
+		}
+	}
+
+	&.active {
+		opacity: 1; max-height: 1200px;
+		
+		& > .header {
+			margin: 0;
+			background: $mainActiveBackgroundColor; 
+		}
+
+		& > .content {
+			max-height: 900px;
+		}
+	}
+	
+}
+
+#map-canvas { height: 300px; }
+
+/* --- --- --- --- --- --- --- --- --- --- --- --- --- --- */
+
+.list-header { 
+	background: #EEE;
+	border: 1px solid #CCC; 
+	padding: 0.5em; 
+	overflow: hidden; 
+
+	.input {
+		padding: 0; margin: 0; 
+		width: 68%;
+	   	float: left; 
+		border: none;
+
+		&.select { }
+		&.text { width: 30%; } 
+		&.text input { 
+			border: 1px solid #CCC;
+			padding: 0.1em 0.5em; 
+			margin-left: 5%; 
+			@include border-radius(0.2em);
+		}
+	}
+}
+
+.list-content {
+	padding: 1em 0; 
+}
+
+.list-content ul {
+	padding: 0;
+	overflow: hidden; 
+	text-align: justify; 
+
+	li {
+		display: inline-block;
+		list-style: none;
+		padding: 4px;
+		margin-bottom: 1em; 
+		border: 1px solid #999; 
+		cursor: pointer;
+		position: relative;
+
+		.ss-icon {
+			display: block;
+			width: 40px;
+		   	height: 40px;
+			font-size: 1.5em;
+		   	position: absolute;
+			top: -50%;
+			left: 50%;
+			margin: -20px 0 0 -20px; 
+			text-align: center;
+			line-height: 40px; 
+			background: #FFF; 
+			color: #27ae60; 
+			border: 2px solid #27ae60; 
+			opacity: 0;
+			@include border-radius(50%);
+			@include single-transition( all, 0.4s, ceaser($easeInOutBack) );
+		}	
+		
+		&.selected {
+			padding: 1px; 
+			border: 4px solid #090;
+
+			.ss-icon { 
+				opacity: 1; top: 50%;
+		   	}
+		}
+
+		img {
+			display: block;
+	   	}
+	}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+	section.step {
+
+		& > .header { }
+
+		& > .content {
+
+			.footer .button { width: 100%; } 
+		}
+
+	}
+
+	// Tabs
+	.tabs-container .tab-content { padding: 0.5em 1em; }
+	.tabs-container .tab-content form .input { margin: 0; }
+	.tabs-container .tab-content input { font-size: 1em; }
+
+	#cnt-photo .ladda-button { margin: 1em 0;  }
+	#cnt-photo .ladda-button + p { display: none; }
+
+}
+
+@media only screen
+and (min-width : 1024px) {
+
+	/*body { border-top: 10px solid #F00; }*/
+
+	body {
+		padding: 2em 0; 
+	}
+
+	body, form, select, input, textarea, select {
+		font-size: 16px; 
+	}
+
+	#container {
+		width: 60%;
+		margin: 0 auto; 
+		border: 2px solid #FFF; 
+		overflow: hidden;
+		@include border-radius(0.5em);
+		@include box-shadow( 0 0 5px #999 );
+	}
+
+}
+

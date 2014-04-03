@@ -1,0 +1,25 @@
+/* --- Layout vars --- --- --- --- --- --- --- --- --- --- --- --- --- */
+
+// Setting a 'Magic' grid with SUSY. Its an em based grid system with gitters and padding
+// Mobile first approach - Start from 8 columns and grow the layout for bigger screens
+
+$layoutDebug	: false;
+
+$total-columns  : 6;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+$break-small: 8;
+$break-medium: 13;
+$break-normal: 18;
+$break-large: 23;
+
+$mainColumnPadding: 1;
+
+/* --- Starting point - Mobile layout first --- --- --- --- --- --- --- */
+body {
+
+}
+
+@include at-breakpoint($break-large) { }

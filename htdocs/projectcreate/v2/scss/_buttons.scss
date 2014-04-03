@@ -1,0 +1,36 @@
+
+%button {
+	@include box-sizing('border-box');
+	@include user-select('none');
+
+	line-height: 1em !important; 
+	text-decoration: none !important; 
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0;
+	padding: 0.4em 1.3em;
+	position: relative;
+	text-align: center;
+
+	-webkit-touch-callout: none;
+}
+
+@mixin button($background, $color) {
+
+	@extend %button;
+
+	color: $color; 
+	background: $background; 
+	border-bottom: 4px solid adjust-color($background, $lightness: -15); 
+
+	&:hover {
+		background-color: adjust-color($background, $lightness: 15);
+		border-color: adjust-color($background, $lightness: -30); 
+		color: adjust-color($background, $lightness: -40); 
+	}
+
+	&:active {
+
+	}
+}

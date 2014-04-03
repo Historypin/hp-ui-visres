@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Project Create</title>
+
+		<meta name="description" content="">
+		<meta name="apple-mobile-web-app-capable" content="yes"> 
+ 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="icons/ss-symbolicons-block.css">
+
+		<script type="text/javascript" src="js/libs/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.FloatLabel.js"></script>
+
+		<script type="text/javascript" src="js/spin.js"></script>
+		<script type="text/javascript" src="js/ladda.js"></script>
+
+		<script type="text/javascript" src="js/app.js"></script>
+
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJI7UXfDK276FuueCoara7EX-u2yl5kfI&sensor=false">
+		</script>
+		<script type="text/javascript">
+			function initialize() {
+				var mapOptions = {
+					center: new google.maps.LatLng(-34.397, 150.644),
+					zoom: 8
+				};
+				var map = new google.maps.Map(document.getElementById("map-canvas"),
+											  mapOptions);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+
+	</head>
+	<body>
+
+		<div id="container">
+
+		    <section class="step">
+				<header class="header">Project Details</header>
+				<div class="content">
+					<div class="inner">
+
+						<form>
+							<div class="input text js-float-label-wrapper required">
+								<label>Enter Project Title here</label>
+								<input type="text" name="project-title" id="project-title" required="required" />
+								<div class="helper"></div>
+							</div>
+							<div class="input textarea js-float-label-wrapper required">
+								<label>Enter Project Description here</label>
+								<textarea type="text" name="project-desc" id="project-desc" required="required"></textarea>
+								<div class="helper"></div>
+							</div>
+							<div class="input checkbox">
+								<label>Do you want people to add Pins to your Project?</label>
+								<input type="checkbox" name="public" id="public" checked="checked">
+								<label for="public">Yes</label>
+								<div class="helper"></div>
+							</div>
+						</form>
+
+						<footer class="footer">
+							<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>
+						</footer>
+
+					</div>
+				</div>
+			</section>
+
+		    <section class="step">
+		        <header class="header">Project Banner</header>
+				<div class="content">
+					<div class="inner">
+
+						<div class="tabs-container">
+							<ul class="tabs">
+								<li class="active"><a href="#cnt-photo">Photo</a></li>
+								<li><a href="#cnt-video">Video</a></li>
+							</ul>
+							<div id="cnt-photo" class="tab-content selected">
+
+								<button class="ladda-button btn-photo" data-style="expand-right" data-color="purple"><span class="ladda-label">Add Photo</span></button>
+								<p>or drag &amp; drop your image here (under 5MB)</p>
+
+							</div>
+							<div id="cnt-video" class="tab-content">
+
+								<form>
+									<div class="input text js-float-label-wrapper">
+										<label>Enter a YouTube/Vimeo URL here</label>
+										<input type="url" name="video-url" id="video-url" />
+										<div class="helper"></div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+						<footer class="footer">
+							<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>
+						</footer>
+
+					</div>
+				</div>
+			</section>
+
+		    <section class="step">
+		        <header class="header">Add Pins</header>
+				<div class="content">
+					<div class="inner">
+
+						<div class="list">
+							<div class="list-header">
+
+								<form>
+
+									<div class="input select">
+										<select name="list">
+											<option>My Pins</option>
+											<option>My Favourites</option>
+										</select>
+									</div>
+
+									<div class="input text">
+										<input type="text" name="search" id="search" placeholder="Search" />
+										<div class="helper"></div>
+									</div>
+								</form>
+
+							</div>
+							<div class="list-content">
+								<ul>
+									<li><img src="images/pin1.jpg"></li>
+									<li><img src="images/pin2.jpg"></li>
+									<li><img src="images/pin3.jpg"></li>
+									<li><img src="images/pin4.jpg"></li>
+									<li><img src="images/pin5.jpg"></li>
+									<li><img src="images/pin6.jpg"></li>
+									<li><img src="images/pin7.jpg"></li>
+									<li><img src="images/pin8.jpg"></li>
+									<li><img src="images/pin9.jpg"></li>
+								</ul>
+							</div>
+							<div class="pagination">
+
+								<div class="counter"></div>
+
+								<button class="paginate left"><i></i><i></i></button>
+								<button class="paginate right"><i></i><i></i></button>
+
+								<script>
+
+									// basic paging logic to demo the buttons
+								var pr = document.querySelector( '.paginate.left' );
+								var pl = document.querySelector( '.paginate.right' );
+
+								pr.onclick = slide.bind( this, -1 );
+								pl.onclick = slide.bind( this, 1 );
+
+								var index = 0, total = 5;
+
+								function slide(offset) {
+									index = Math.min( Math.max( index + offset, 0 ), total - 1 );
+
+									document.querySelector( '.counter' ).innerHTML = ( index + 1 ) + ' / ' + total;
+
+									pr.setAttribute( 'data-state', index === 0 ? 'disabled' : '' );
+									pl.setAttribute( 'data-state', index === total - 1 ? 'disabled' : '' );
+								}
+
+								slide(0);
+
+								</script>
+							</div>
+
+
+						</div>
+
+						<footer class="footer">
+							<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>
+						</footer>
+
+					</div>
+				</div>
+			</section>
+
+		    <section class="step">
+		        <header class="header">Project Admins</header>
+				<div class="content">
+					<div class="inner">
+
+						<form action="#" method="post">
+							<div class="control list roles">
+
+								<div class="row">
+									<div class="input select">
+										<select name="role">
+											<option value="user">User</option>
+											<option value="moderator">Moderator</option>
+											<option value="manager">Manager</option>
+											<option value="admin">Admin</option>
+										</select>
+									</div>
+									<div class="input text">
+										<input type="text" name="role-name" id="role-name" />
+									</div>
+								</div>
+
+								<div class="row hidden">
+									<div class="input select">
+										<select name="role">
+											<option value="user">User</option>
+											<option value="moderator">Moderator</option>
+											<option value="manager">Manager</option>
+											<option value="admin">Admin</option>
+										</select>
+									</div>
+									<div class="input text">
+										<input type="text" name="role-name" id="role-name" />
+									</div>
+									<div class="input actions">
+										<a href="#" class="ss-icon ss-deleteuser btn-remove"></a>
+									</div>
+								</div>
+
+
+						    </div>
+						</form>
+
+						<footer class="footer">
+							<a href="#" class="button add-row">Add another Admin</a>
+							<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>
+						</footer>
+
+					</div>
+				</div>
+			</section>
+
+		    <section class="step">
+		        <header class="header">Links</header>
+				<div class="content">
+					<div class="inner">
+
+						
+						<form action="#" method="post">
+							<div class="control list links">
+
+								<div class="row">
+									<div class="input select">
+										<select name="link">
+											<option value="1">Twitter</option>
+											<option value="2">Facebook</option>
+											<option value="3">LinkedIn</option>
+											<option value="4">Blog</option>
+										</select>
+									</div>
+									<div class="input text">
+										<input type="text" name="role-name" id="role-name" />
+									</div>
+								</div>
+
+								<div class="row hidden">
+									<div class="input select">
+										<select name="link">
+											<option value="1">Twitter</option>
+											<option value="2">Facebook</option>
+											<option value="3">LinkedIn</option>
+											<option value="4">Blog</option>
+										</select>
+									</div>
+									<div class="input text">
+										<input type="text" name="role-name" id="role-name" />
+									</div>
+									<div class="input actions">
+										<a href="#" class="ss-icon ss-deleteuser btn-remove"></a>
+									</div>
+								</div>
+
+						    </div>
+						</form>
+
+						<footer class="footer">
+							<a href="#" class="button add-row">Add another Link</a>
+							<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>
+						</footer>
+
+					</div>
+				</div>
+			</section>
+
+		    <section class="step">
+		        <header class="header">Locations</header>
+				<div class="content">
+					<div class="inner">
+
+						<form>
+							<div class="input text js-float-label-wrapper">
+								<label>Search for place or adress</label>
+								<input type="text" name="map-search" id="map-search" />
+								<div class="helper"></div>
+							</div>
+						</form>
+
+						<div id="map-canvas"></div>
+
+						<!--<footer class="footer">-->
+							<!--<button class="ladda-button btn-next" data-style="zoom-out" data-color="green"><span class="ladda-label">Next</span></button>-->
+						<!--</footer>-->
+
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+	</body>
+</html>

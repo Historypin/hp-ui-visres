@@ -1,0 +1,113 @@
+.tabs-container {
+
+	.tabs {
+		overflow: hidden;
+		padding: 0.5em 1em 0 1em; 
+
+		li { 
+			float: left; 
+			width: 50%; 
+			position: relative; 
+			padding: 0; 
+			list-style: none;
+			@include single-transition( all, 0.3s, ease-in );
+
+			a { 
+				display: block;
+				width: 100%;
+				padding: 0.5em 1em; 
+				line-height: 1em; 
+				text-decoration: none;
+				color: adjust-color($tabBackgroundColor, $lightness: 50);
+				background: $tabBackgroundColor; 
+				border-top-left-radius: $tabBorderRadius;
+				border-top-right-radius: $tabBorderRadius; 
+				@include single-transition( all, 0.2s, ease-in );
+				
+			}
+
+			&.active { z-index: 3; }
+
+			&.active a { 
+				background: $tabActiveBackground; 
+				color: $tabActiveColor; 
+			}
+
+			&:before, &:after, & a:before, & a:after {
+				@include single-transition( all, 0.2s, ease-in );
+				position: absolute;
+				bottom: 0;
+			}
+
+			&:last-child:after,   &:last-child a:after,
+			&:first-child:before, &:first-child a:before,
+			&.active:after,   &.active:before, 
+			&.active a:after, &.active a:before {
+				content: "";
+			}
+
+			&.active:before, &.active:after {
+				background: $tabActiveBackground; 
+				z-index: 1;
+			}		
+
+			/* Squares */
+			&:before, &:after {
+				background: $tabBackgroundColor;
+				width: 0.5em;
+				height: 0.5em;
+			}
+
+			&:before { left: -0.5em; }
+			&:after { right: -0.5em; }
+
+			/* Circles */
+			& a:after, & a:before {
+				width: 1em; 
+				height: 1em;
+				border-radius: $tabBorderRadius;
+				background: $pageBackgroundColor;
+				z-index: 2;
+			}
+
+			&.active a:after, &.active a:before {
+				background: $tabBackgroundColor;
+			}
+
+			&:first-child.active a:before, &:last-child.active a:after {
+				background: $pageBackgroundColor;
+			}
+
+			& a:before { left: -1em; }
+			& a:after { right: -1em; }
+		}
+	}
+
+	.tab-content {
+		display: none; 
+		border: 5px solid $tabActiveBackground;
+		padding: 2em 1.5em 1.5em 1.5em;
+
+		&.selected {
+			display: block;
+		}
+
+		@include border-radius($tabBorderRadius);
+	}
+
+	#cnt-photo {
+		text-align: center; 
+		background-color: #F8F8F8;
+		background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+
+		.ladda-button {
+			margin-bottom: 1em; 
+		}
+
+		.ladda-button + p {
+			padding: 0 30%;
+			@include single-transition( all, 0.4s, ceaser($easeInOutBack) );
+		}
+	}
+}
+
