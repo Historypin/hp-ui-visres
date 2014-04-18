@@ -10,9 +10,9 @@
       if ($.cookie(name) != undefined) {
         jq.val($.cookie(name));
       }
-      jq.change(function() {
-        // console.log('updated '+name+' '+$(this).val());
-        $.cookie(name, $(this).val(), { path: '/', expires: 7 });
+      jq.change(function(event) { 
+        // console.log('updated '+event.target.id+' '+$(this).val());
+        $.cookie(event.target.id, $(this).val(), { path: '/', expires: 7 });
       });
     }
 
