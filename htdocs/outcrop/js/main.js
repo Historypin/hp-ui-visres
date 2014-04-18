@@ -27,7 +27,7 @@
     $('.outcrop').outcrop({mode: "read"});
 
     // when the edit button is clicked, make one outcrop editable
-    $('#out-1-edit').click(function() {
+    $('#out-1-edit').click(function(event) {
       if ($('#out-1').outcrop('option', 'mode') == 'read') {
         $('#out-1').outcrop({mode: "edit"});
         // update message to done
@@ -36,6 +36,8 @@
         $('#out-1').outcrop({mode: "read"});
         $(this).html('Edit');
       }
+      // interrupt link to avoid # being appended to URL
+      event.preventDefault();
     });
     
   });
