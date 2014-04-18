@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/outcrop.css">
+        <link rel="stylesheet" href="css/vendor/ui-lightness/jquery-ui-1.10.4.all.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>Outcrop demo</h1>
+        <p class="lead">R&D: selecting part of an image for display</p>
+        <p style="padding: 1.0em 0 0 3.0em; float: left;"><a id="out-1-edit" class="button" href="#">Edit</a></p>
+        
+        <!-- outcrop: show part of a big image -->
+        <div id="out-1" class="outcrop" style="width: 50%; height: 300px; margin-left: 25%;">
+          <input id="demo_x" type="hidden" name="x" value="100" />
+          <input id="demo_y" type="hidden" name="y" value="100" />
+          <input id="demo_zoom" type="hidden" name="zoom" value="40" />
+          <!-- optional: hide image until we've scaled it, then fade in -->
+          <img style="display: none;" src="img/AH180.jpg" alt="big image of cars from 1980" />
+        </div>
+        
+        <!-- optional link to trigger editing -->
+        <p style="margin-top: 4.0em; margin-left: 20.0em;"></p>
+        <p style="font-size: 30%;"><a id="out-1-clearcookie" class="" href="./">Reset to original position</a></p>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/vendor/jquery.cookie.js"></script>
+        <script src="js/vendor/jquery.mousewheel.min.js"></script>
+        <!-- <script src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script> -->
+        <script src="js/vendor/jquery-ui-1.10.4.all.min.js"></script>
+        <script src="js/vendor/jquery-ui.outcrop.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

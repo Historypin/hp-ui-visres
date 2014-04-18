@@ -1,0 +1,60 @@
+
+html {
+	overflow-y: scroll;
+}
+
+.outcrop .cropped {
+	position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.outcrop .cropped img {
+  position: absolute;
+}
+
+.outcrop .cropped.edit {
+  cursor: move;
+}
+
+.outcrop .message {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -1.0em;
+	margin-left: -4.0em;
+	background-color: #999999;
+	color: #FFFFFF;
+	text-align: center;
+	width: 8.0em;
+}
+
+.outcrop .message span {
+  display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+	margin: 0.5em;
+}
+
+.outcrop .slider {
+	width: 14.0em;
+	margin-left: -7.0em;
+	left: 50%;
+	position: relative;
+	top: 0.5em;
+}
+
+/* initially the cloned image isn't visible */
+.outcrop-clone {
+	display: none;
+	position: absolute;
+	z-index: 3;
+}
