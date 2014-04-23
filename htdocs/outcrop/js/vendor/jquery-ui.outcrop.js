@@ -41,7 +41,7 @@
 
     // setup the widget
     _create: function() {
-      var that = this, proxyImg;
+      var that = this, loadingMess;
       // assign this instance an ID
       this.options.id = intseq++;
       // find the contained image
@@ -52,6 +52,9 @@
       this.options.jqImg.wrap('<div id="outcrop-wrapid-' + this.options.id + '" class="cropped"></div>');
       // read back the wrapper's jQuery object
       this.options.jq = $('#outcrop-wrapid-' + this.options.id);
+      // show a loading message in the middle of the crop area
+      this.options.jq.append('<div class="message"><span>Large image<br />loading...</span></div>');
+      loadingMess = this.options.jq.find('.message');
       // read x and y out of the form elements
       this.options.x = parseInt(this.element.find('input[name="'+this.options.name_x+'"]').val(),10);
       this.options.y = parseInt(this.element.find('input[name="'+this.options.name_y+'"]').val(),10);
@@ -61,7 +64,9 @@
         // read image dimensions
         that.options.imageWidthNative = $(this).width(), that.options.imageHeightNative = $(this).height();
         // create handler, which moves/scales the image to this coord
-        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);        
+        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);
+        // hide the loading message
+        loadingMess.remove();
         // show image
         $(this).show().animate( { opacity: 1.0 }, 200);
       }).each(function() {
@@ -259,7 +264,7 @@
       
       var calcBounded = function(off, max, min) {
         return Math.max(Math.min(off, max), min);
-      } 
+      };
       
       // return the actual handler
       return function(event, ui) {
