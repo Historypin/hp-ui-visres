@@ -1,3 +1,8 @@
+/**
+ * outcrop
+ * v0.9.0
+ */
+
   (function( $ ) {
   // static variable
   var intseq = 0;
