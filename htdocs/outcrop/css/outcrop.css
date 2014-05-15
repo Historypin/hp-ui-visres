@@ -1,3 +1,7 @@
+/**
+ * outcrop.css
+ * v0.9.0
+ */
 
 html {
 	overflow-y: scroll;
@@ -5,24 +9,24 @@ html {
 
 .outcrop .cropped {
 	position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 1;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 1;
 }
 
 .outcrop .cropped img {
-  position: absolute;
+	position: absolute;
 }
 
 .outcrop .cropped.edit {
-  cursor: move;
+	cursor: move;
 }
 
 .outcrop .message {
@@ -38,7 +42,7 @@ html {
 }
 
 .outcrop .message span {
-  display: inline-block;
+	display: inline-block;
 	vertical-align: middle;
 	line-height: normal;
 	margin: 0.5em;
