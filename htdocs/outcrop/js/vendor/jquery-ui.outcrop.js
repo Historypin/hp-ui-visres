@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.2
+ * v0.9.3
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -18,11 +18,11 @@
 
       // debug mode, send debugging messages to console if true
       debug: false,
-      // when a drag operation hits the corners, animate crop marks
+      // @todo when a drag operation hits the corners, animate crop marks
       bounceCorners: true,
       // listen for container resize event, for responsive containers
       watchResize: true,
-      // show a shadow image during dragging operations
+      // @todo show a shadow image during dragging operations
       showShadow: false,
       // show a message
       showMessage: 'Drag to move<br />Scroll to zoom',
@@ -260,7 +260,18 @@
       return Math.round(value * 100)/100;
     },
 
-    calcBounded: function(off, max, min) {
+    /**
+     * @param off input value to bound
+     * @param min minimum bound
+     * @param max maximum bound
+     */
+    calcBounded: function(off, min, max) {
+      // swap min and max if set the wrong way around
+      if (min > max) {
+        var t = min;
+        min = max;
+        max = t;
+      }
       return Math.max(Math.min(off, max), min);
     },
       
@@ -296,7 +307,7 @@
       // compute the minimum zoom amount that's needed for this image to fill its container
       imageNormCoordZMin = Math.max(containerWidth / that.options.imageWidthNative, containerHeight / that.options.imageHeightNative);
       // crop imageNormCoordZ using computed imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
-      imageNormCoordZ = Math.max(imageNormCoordZ, imageNormCoordZMin)
+      imageNormCoordZ = that.calcBounded(imageNormCoordZ, imageNormCoordZMin, 1);
       // calculate offsets (scaled offsets)
       imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
       imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
@@ -321,8 +332,8 @@
       }
       // use zoom and input coords to calculate scaled cropped offsets
       var imageOffsetWidth = imageWidthScaled;
-      var imageOffsetLeft = that.calcBounded(-imageNativeCoordX * imageNormCoordZ, 0, -imageWidthSDiff);
-      var imageOffsetTop = that.calcBounded(-imageNativeCoordY * imageNormCoordZ, 0, -imageHeightSDiff);
+      var imageOffsetLeft = that.calcBounded(-imageNativeCoordX * imageNormCoordZ, -imageWidthSDiff, 0);
+      var imageOffsetTop = that.calcBounded(-imageNativeCoordY * imageNormCoordZ, -imageHeightSDiff, 0);
       // create start variants, necessary for drag comparison
       var imageOffsetStartLeft = imageOffsetLeft;
       var imageOffsetStartTop = imageOffsetTop;
@@ -373,7 +384,7 @@
           // slider returns values from 0-100, reverse to 100-0
           var sliderValue = 100 - ui.value;
           // calculate new normalized coord, between 1 and say 0.15 (imageNormCoordZMin)
-          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, 1, imageNormCoordZMin);
+          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, imageNormCoordZMin, 1);
         }
         // recalc block
         imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
@@ -383,19 +394,19 @@
         // action-specific calculation
         if (event.type == 'mousemove') {
           // compute offset of image to container, then bound between 0 and max real image dimensions
-          offl = that.calcBounded(imageOffsetStartLeft + dx, 0, -imageWidthSDiff);
-          offt = that.calcBounded(imageOffsetStartTop + dy, 0, -imageHeightSDiff);
+          offl = that.calcBounded(imageOffsetStartLeft + dx, -imageWidthSDiff, 0);
+          offt = that.calcBounded(imageOffsetStartTop + dy, -imageHeightSDiff, 0);
           // used to bound by that.options.imageWidthNative, but smaller-than-container images need to fill container (therefore > native)
-          offw = that.calcBounded(imageWidthScaled, imageWidthScaled, containerWidth);
+          offw = that.calcBounded(imageWidthScaled, containerWidth, imageWidthScaled);
           if (that.options.debug) {
             // optional debugging output
             console.log('imageOffsetStartLeft['+imageOffsetStartLeft+'] imageOffsetStartTop['+imageOffsetStartTop+'] imageNormCoordZ['+imageNormCoordZ+'] px['+event.pageX+'] py['+event.pageY+'] dx['+dx+'] dy['+dy+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
           }
         } else if ((event.type == 'slide') || (event.type == 'scrollzoom')) {
           // new coord is normalised pointer coord mapped back onto image, translated back to cursor position, then bound between 0 and max real image dimensions
-          offl = that.calcBounded(-pointerNormX * imageWidthScaled + event.offsetX, 0, -imageWidthSDiff);
-          offt = that.calcBounded(-pointerNormY * imageHeightScaled + event.offsetY, 0, -imageHeightSDiff);
-          offw = that.calcBounded(imageWidthScaled, imageWidthScaled, containerWidth);
+          offl = that.calcBounded(-pointerNormX * imageWidthScaled + event.offsetX, -imageWidthSDiff, 0);
+          offt = that.calcBounded(-pointerNormY * imageHeightScaled + event.offsetY, -imageHeightSDiff, 0);
+          offw = that.calcBounded(imageWidthScaled, containerWidth, imageWidthScaled);
           if (that.options.debug) {
             // optional debugging output
             console.log('imageOffsetLeft['+imageOffsetLeft+'] imageOffsetTop['+imageOffsetTop+'] imageWidthSDiff['+imageWidthSDiff+'] imageHeightSDiff['+imageHeightSDiff+'] imageNormCoordZ['+imageNormCoordZ+'] offsetX['+event.offsetX+'] offsetY['+event.offsetY+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
