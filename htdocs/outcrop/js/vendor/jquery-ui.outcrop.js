@@ -1,6 +1,9 @@
 /**
  * outcrop
- * v0.9.0
+ * v0.9.2
+ * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
+ * @author  Alex Stanhope (alex_stanhope@hotmail.com)
  */
 
   (function( $ ) {
@@ -14,13 +17,15 @@
       // settings
 
       // debug mode, send debugging messages to console if true
-      debug: true,
+      debug: false,
       // when a drag operation hits the corners, animate crop marks
       bounceCorners: true,
       // listen for container resize event, for responsive containers
       watchResize: true,
       // show a shadow image during dragging operations
       showShadow: false,
+      // show a message
+      showMessage: 'Drag to move<br />Scroll to zoom',
       // name of form field to write 'x' coord into
       name_x: 'x',
       // name of form field to write 'y' coord into
@@ -29,6 +34,14 @@
       name_zoom: 'zoom',
       // scaling factor applied to mousescroll events
       sliderZoomScalingFactor: 0.2,
+      // by default, slider is appended to outcrop container
+      sliderZoomAttachPoint: null,
+      // default intial values
+      default_x: 0,
+      default_y: 0,
+      default_zoom: 0.1, // zoomed all the way out
+      // reset to centre of image on edit
+      resetToCentreOnFirstRun: false,
 
       // state
       clear: null,
@@ -38,9 +51,9 @@
       jqImg: null,
       jqImgClone: null,
       jqSlider: null,
-      x: 0,
-      y: 0,
-      zoom: 0,
+      x: null,
+      y: null,
+      zoom: null,
       dragging: false,
     },
 
@@ -49,6 +62,12 @@
       var that = this, loadingMess;
       // assign this instance an ID
       this.options.id = intseq++;
+      // make sure we've got the outcrop class on the called container $('<x>').outcrop();
+      this.element.addClass('outcrop');
+      // fill in attach point if unset
+      if (this.options.sliderZoomAttachPoint == null) {
+        this.options.sliderZoomAttachPoint = this.element;
+      }
       // find the contained image
       this.options.jqImg = this.element.find('img');
       // hide it right away, until we've computed correct size
@@ -60,16 +79,20 @@
       // show a loading message in the middle of the crop area
       this.options.jq.append('<div class="message"><span>Large image<br />loading...</span></div>');
       loadingMess = this.options.jq.find('.message');
-      // read x and y out of the form elements
-      this.options.x = parseInt(this.element.find('input[name="'+this.options.name_x+'"]').val(),10);
-      this.options.y = parseInt(this.element.find('input[name="'+this.options.name_y+'"]').val(),10);
-      this.options.zoom = parseInt(this.element.find('input[name="'+this.options.name_zoom+'"]').val(),10);
+      // read x, y and zoom out of the form elements
+      this.options.x = parseInt($('input[name="'+this.options.name_x+'"]').val(),10);
+      this.options.y = parseInt($('input[name="'+this.options.name_y+'"]').val(),10);
+      this.options.zoom = parseInt($('input[name="'+this.options.name_zoom+'"]').val(),10);
+      // setup defaults if form fields empty
+      if (isNaN(this.options.x)) this.options.x = this.options.default_x;
+      if (isNaN(this.options.y)) this.options.y = this.options.default_y;
+      if (isNaN(this.options.zoom)) this.options.zoom = this.options.default_zoom;
       // once image is loaded, read dimensions and prep
       this.options.jqImg.one('load', function() {
         // read image dimensions
-        that.options.imageWidthNative = $(this).width(), that.options.imageHeightNative = $(this).height();
+        that.options.imageWidthNative = this.width, that.options.imageHeightNative = this.height;
         // create handler, which moves/scales the image to this coord
-        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);
+        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, true);
         // hide the loading message
         loadingMess.remove();
         // show image
@@ -81,8 +104,12 @@
       if (this.options.watchResize) {
         this.options.jq.resize(function () {
           // reset handler
-          that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);        
+          that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, false);
         });
+      }
+      // if we're launching straight into an edit, set it up
+      if (this.options.mode == 'edit') {
+        this.setupEdit();
       }
     },
 
@@ -110,12 +137,14 @@
       var that = this;
       // show the drag cursor
       this.options.jq.addClass('edit');
-      // show a message in the middle of the crop area
-      this.options.jq.append('<div class="message"><span>Drag to move<br />Scroll to zoom</span></div>');
+      // show a message in the middle of the crop area if set
+      if (this.options.showMessage != false) {
+        this.options.jq.append('<div class="message"><span>'+this.options.showMessage+'</span></div>');
+      }
       // create handler
-      this.options.moveZoomHandler = this.getMoveZoomHandler(this.options.x, this.options.y, this.options.zoom);
+      this.options.moveZoomHandler = this.getMoveZoomHandler(this.options.x, this.options.y, this.options.zoom, true);
       // show a zoom slider underneath the image
-      this.options.jq.parent().append('<div id="outcrop-zoomslider" class="slider"></div>');
+      this.options.sliderZoomAttachPoint.append('<div id="outcrop-zoomslider" class="slider"></div>');
       this.options.jqSlider = $('#outcrop-zoomslider').slider( {
         value: 100 - that.options.zoom,
         slide: function(event, ui) {
@@ -139,10 +168,10 @@
 
     teardownEdit: function() {
       this.options.jq.removeClass('edit');
-      // drop message
+      // drop message if it exists
       this.options.jq.find('.message').remove();
       // drop slider
-      this.options.jq.parent().find('.slider').remove();
+      this.options.jqSlider.remove();
       // stop being draggable
       this.options.jq.unbind('mousedown');
     },
@@ -165,6 +194,8 @@
           // flag no longer dragging
           that.moveZoomStop();
           that.options.dragging = false;
+          // stop bubble to avoid image thumbnail dragging
+          event.preventDefault();
         });
       });
     },
@@ -172,7 +203,7 @@
     moveZoomStart: function() {
       var that = this;
       // refresh closure constants in handler for mouse move
-      that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);
+      that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, false);
     },
     
     moveZoomStop: function moZoSto() {
@@ -189,11 +220,11 @@
             that.options.jqImgClone = null;
         }
         // store coordinates back into form and trigger change listeners
-        that.element.find('input[name="'+that.options.name_x+'"]').val(that.options.x).trigger('change');
-        that.element.find('input[name="'+that.options.name_y+'"]').val(that.options.y).trigger('change');
-        that.element.find('input[name="'+that.options.name_zoom+'"]').val(that.options.zoom).trigger('change');
+        $('input[name="'+that.options.name_x+'"]').val(that.round(that.options.x)).trigger('change');
+        $('input[name="'+that.options.name_y+'"]').val(that.round(that.options.y)).trigger('change');
+        $('input[name="'+that.options.name_zoom+'"]').val(that.round(that.options.zoom)).trigger('change');
         // refresh closure constants in handler for mouse move
-        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom);
+        that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, false);
       // callback in just X ms; long enough only to avoid repeat scrollevents
       }, 20);
     },
@@ -223,13 +254,27 @@
     },
 
     /**
+     * @return value rounded to 2 decimal places
+     */
+    round: function(value) {
+      return Math.round(value * 100)/100;
+    },
+
+    calcBounded: function(off, max, min) {
+      return Math.max(Math.min(off, max), min);
+    },
+      
+    /**
+     * getMoveZoomHandler is called frequently during the life of an outcrop controller.  It's called at start-up, then again
+     *   when the image finishes loading.
      * x and y refer to coords (e.g. mouse)
      * l and t refer to offsets (e.g. css top and left)
      * @param x positive coordinate of image (in native pixels) to show in top-left of container
      * @param y positive coordinate of image (in native pixels) to show in top-left of container
      * @param zoom scale of image (as a normalised percentage) where 100 is full-resolution (1:1 px) and 0 is container width
+     * @param firstRun true if this is the first time we're initialising this handler
      */
-    getMoveZoomHandler: function(x, y, zoom) {
+    getMoveZoomHandler: function(x, y, zoom, firstRun) {
       var imageWidthScaled, imageHeightScaled;
       var imageWidthSDiff, imageHeightSDiff;
       // setup context for use in returned function
@@ -237,39 +282,59 @@
       // find container position and dimensions
       var containerTop = this.options.jq.offset().top, containerLeft = this.options.jq.offset().left;
       var containerWidth = this.options.jq.width(), containerHeight = this.options.jq.height();
-      // calculate minimum width, @todo while still filling container
+      // calculate minimum width
       var imageWidthMinimum = containerWidth, imageHeightMinimum = containerHeight;
       // flag that we haven't captured the drag start coords yet
       var mouseDragStartX = -1, mouseDragStartY = -1;
-      // capture input x,y,zoom as start values (unscaled coords)
-      var imageNativeCoordX = x, imageNativeCoordY = y;
+      // capture input zoom as start value (unscaled coords)
       var imageNormCoordZ = zoom / 100; // 0-1
+      // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
+      if (firstRun && that.options.resetToCentreOnFirstRun) {
+        // set zoom to default
+        imageNormCoordZ = that.options.default_zoom / 100;
+      }
+      // compute the minimum zoom amount that's needed for this image to fill its container
+      imageNormCoordZMin = Math.max(containerWidth / that.options.imageWidthNative, containerHeight / that.options.imageHeightNative);
+      // crop imageNormCoordZ using computed imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
+      imageNormCoordZ = Math.max(imageNormCoordZ, imageNormCoordZMin)
       // calculate offsets (scaled offsets)
       imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
       imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
       imageWidthSDiff = imageWidthScaled - imageWidthMinimum;
       imageHeightSDiff = imageHeightScaled - imageHeightMinimum;
-      // compute the minimum zoom amount that's needed for this image to fill its container
-      imageNormCoordZMin = Math.max(containerWidth / that.options.imageWidthNative, containerHeight / that.options.imageHeightNative);
-      // use zoom and input coords to calculate scaled offsets
+      // capture input x,y as start values (unscaled coords)
+      var imageNativeCoordX = x, imageNativeCoordY = y;
+      // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
+      if (firstRun && that.options.resetToCentreOnFirstRun) {
+        // set the imageNativeCoordX/Y as the image centre, which means it displays slightly off-centre, but that's ok
+        imageNativeCoordX = (that.options.imageWidthNative / 2) - (containerWidth / 2);
+        imageNativeCoordY = (that.options.imageHeightNative / 2) - (containerHeight / 2);
+        // store back modified coords, as if we'd done a drag and finished there
+        that.options.x = imageNativeCoordX;
+        that.options.y = imageNativeCoordY;
+        that.options.zoom = imageNormCoordZ * 100;
+      }
+      // output debugging information for cropped x,y,zoom
+      if (that.options.debug) {
+        // optional debugging output
+        console.log('imageNativeCoordX['+imageNativeCoordX+'] imageNativeCoordY['+imageNativeCoordY+'] imageNormCoordZ['+imageNormCoordZ+']');
+      }
+      // use zoom and input coords to calculate scaled cropped offsets
       var imageOffsetWidth = imageWidthScaled;
-      var imageOffsetLeft = -imageNativeCoordX * imageNormCoordZ;
-      var imageOffsetTop = -imageNativeCoordY * imageNormCoordZ;
+      var imageOffsetLeft = that.calcBounded(-imageNativeCoordX * imageNormCoordZ, 0, -imageWidthSDiff);
+      var imageOffsetTop = that.calcBounded(-imageNativeCoordY * imageNormCoordZ, 0, -imageHeightSDiff);
       // create start variants, necessary for drag comparison
       var imageOffsetStartLeft = imageOffsetLeft;
       var imageOffsetStartTop = imageOffsetTop;
       // apply initial values to image
       this.options.jqImg.css( {
-        'top': imageOffsetTop + 'px',
-        'left': imageOffsetLeft + 'px',
-        'width': imageOffsetWidth + 'px'
+        'top': that.round(imageOffsetTop) + 'px',
+        'left': that.round(imageOffsetLeft) + 'px',
+        'width': that.round(imageOffsetWidth) + 'px',
+        'height': 'auto',
       });
       // flag that clone is created but not visible yet
       var cloneVisible = false;
-      
-      var calcBounded = function(off, max, min) {
-        return Math.max(Math.min(off, max), min);
-      };
       
       // return the actual handler
       return function(event, ui) {
@@ -308,7 +373,7 @@
           // slider returns values from 0-100, reverse to 100-0
           var sliderValue = 100 - ui.value;
           // calculate new normalized coord, between 1 and say 0.15 (imageNormCoordZMin)
-          imageNormCoordZ = calcBounded((sliderValue / 100) + 0.0001, 1, imageNormCoordZMin);
+          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, 1, imageNormCoordZMin);
         }
         // recalc block
         imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
@@ -318,18 +383,19 @@
         // action-specific calculation
         if (event.type == 'mousemove') {
           // compute offset of image to container, then bound between 0 and max real image dimensions
-          offl = calcBounded(imageOffsetStartLeft + dx, 0, -imageWidthSDiff);
-          offt = calcBounded(imageOffsetStartTop + dy, 0, -imageHeightSDiff);
-          offw = calcBounded(imageWidthScaled, that.options.imageWidthNative, containerWidth);
+          offl = that.calcBounded(imageOffsetStartLeft + dx, 0, -imageWidthSDiff);
+          offt = that.calcBounded(imageOffsetStartTop + dy, 0, -imageHeightSDiff);
+          // used to bound by that.options.imageWidthNative, but smaller-than-container images need to fill container (therefore > native)
+          offw = that.calcBounded(imageWidthScaled, imageWidthScaled, containerWidth);
           if (that.options.debug) {
             // optional debugging output
-            console.log('imageOffsetStartLeft['+imageOffsetStartLeft+'] imageOffsetStartTop['+imageOffsetStartTop+'] imageNormCoordZ['+imageNormCoordZ+'] px['+event.pageX+'] py['+event.pageY+'] dx['+dx+'] dy['+dy+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');          
+            console.log('imageOffsetStartLeft['+imageOffsetStartLeft+'] imageOffsetStartTop['+imageOffsetStartTop+'] imageNormCoordZ['+imageNormCoordZ+'] px['+event.pageX+'] py['+event.pageY+'] dx['+dx+'] dy['+dy+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
           }
         } else if ((event.type == 'slide') || (event.type == 'scrollzoom')) {
           // new coord is normalised pointer coord mapped back onto image, translated back to cursor position, then bound between 0 and max real image dimensions
-          offl = calcBounded(-pointerNormX * imageWidthScaled + event.offsetX, 0, -imageWidthSDiff);
-          offt = calcBounded(-pointerNormY * imageHeightScaled + event.offsetY, 0, -imageHeightSDiff);
-          offw = calcBounded(imageWidthScaled, that.options.imageWidthNative, containerWidth);
+          offl = that.calcBounded(-pointerNormX * imageWidthScaled + event.offsetX, 0, -imageWidthSDiff);
+          offt = that.calcBounded(-pointerNormY * imageHeightScaled + event.offsetY, 0, -imageHeightSDiff);
+          offw = that.calcBounded(imageWidthScaled, imageWidthScaled, containerWidth);
           if (that.options.debug) {
             // optional debugging output
             console.log('imageOffsetLeft['+imageOffsetLeft+'] imageOffsetTop['+imageOffsetTop+'] imageWidthSDiff['+imageWidthSDiff+'] imageHeightSDiff['+imageHeightSDiff+'] imageNormCoordZ['+imageNormCoordZ+'] offsetX['+event.offsetX+'] offsetY['+event.offsetY+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
@@ -340,11 +406,11 @@
           // write to coordinates of image
           that.options.jqImg.css( {
             // image_width - container_width > x > 0
-            'left': offl + 'px',
+            'left': that.round(offl) + 'px',
             // image_height - container_height > x > 0
-            'top': offt + 'px',
+            'top': that.round(offt) + 'px',
             // image zoom reflected by image width
-            'width': offw + 'px'
+            'width': that.round(offw) + 'px'
           });
           if (that.options.showShadow) {
             // calculate coords on image from window reference
@@ -354,18 +420,18 @@
             }
             if (that.options.jqImgClone != null) {
               that.options.jqImgClone.css( {
-                'left': (containerLeft + offl) + 'px',
-                'top': (containerTop + offt) + 'px',
-                'width': offw + 'px',
+                'left': that.round(containerLeft + offl) + 'px',
+                'top': that.round(containerTop + offt) + 'px',
+                'width': that.round(offw) + 'px',
                 'opacity': 0.5,
                 'display': 'block'
               } );
             }
           }
           // store coords in case this is the last frame before dragEnd/sliderStop
-          that.options.x = imageNativeCoordX = (0 - offl) / imageNormCoordZ;
-          that.options.y = imageNativeCoordY = (0 - offt) / imageNormCoordZ;
-          that.options.zoom = imageNormCoordZ * 100;
+          that.options.x = imageNativeCoordX = Math.max((0 - offl) / imageNormCoordZ, 0);
+          that.options.y = imageNativeCoordY = Math.max((0 - offt) / imageNormCoordZ, 0);
+          that.options.zoom = that.calcBounded(imageNormCoordZ * 100, 0, 100);
           // if option set, bounce corners
           if (that.options.bounceCorners) {
             if ((offl == 0) && (offt == 0)) {
