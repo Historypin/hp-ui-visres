@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.3
+ * v0.9.5
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -220,9 +220,7 @@
             that.options.jqImgClone = null;
         }
         // store coordinates back into form and trigger change listeners
-        $('input[name="'+that.options.name_x+'"]').val(that.round(that.options.x)).trigger('change');
-        $('input[name="'+that.options.name_y+'"]').val(that.round(that.options.y)).trigger('change');
-        $('input[name="'+that.options.name_zoom+'"]').val(that.round(that.options.zoom)).trigger('change');
+        that.writeOutFormValues();
         // refresh closure constants in handler for mouse move
         that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, false);
       // callback in just X ms; long enough only to avoid repeat scrollevents
@@ -313,6 +311,28 @@
       imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
       imageWidthSDiff = imageWidthScaled - imageWidthMinimum;
       imageHeightSDiff = imageHeightScaled - imageHeightMinimum;
+      // work out major axis by comparing the amount of slack on x vs y axes
+      var majorWidth = (imageWidthSDiff > imageHeightSDiff);
+      if (false) {
+        console.log('imageWidthSDiff['+imageWidthSDiff+'] imageHeightSDiff['+imageHeightSDiff+'] majorWidth['+majorWidth+']');        
+      }
+      // check that there major axis has some slack (i.e. the image is bigger than the container along the major axis)
+      if ((majorWidth && imageWidthSDiff <= 0) || (!majorWidth && imageHeightSDiff <= 0)) {
+        // use defaults
+        that.options.x = that.options.default_x;
+        that.options.y = that.options.default_y;
+        that.options.zoom = that.options.default_zoom;
+        that.writeOutFormValues();
+        // force image to fill container
+        this.options.jqImg.css( {
+          'top': 0,
+          'left': 0,
+          'width': (majorWidth ? 'auto' : '100%'),
+          'height': (majorWidth ? '100%' : 'auto'),
+        });
+        // return inactive event handler, because we can't do any zooming/dragging
+        return function(event, ui) { };
+      }
       // capture input x,y as start values (unscaled coords)
       var imageNativeCoordX = x, imageNativeCoordY = y;
       // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
@@ -324,6 +344,7 @@
         that.options.x = imageNativeCoordX;
         that.options.y = imageNativeCoordY;
         that.options.zoom = imageNormCoordZ * 100;
+        that.writeOutFormValues();
       }
       // output debugging information for cropped x,y,zoom
       if (that.options.debug) {
@@ -466,6 +487,12 @@
       // solid to start, then border on two sides
     },
     
+    writeOutFormValues: function() {
+      $('input[name="'+this.options.name_x+'"]').val(this.round(this.options.x)).trigger('change');
+      $('input[name="'+this.options.name_y+'"]').val(this.round(this.options.y)).trigger('change');
+      $('input[name="'+this.options.name_zoom+'"]').val(this.round(this.options.zoom)).trigger('change');
+    },
+
     // Use the destroy method to clean up any modifications your widget has made to the DOM
     destroy: function() {
       // In jQuery UI 1.8, you must invoke the destroy method from the base widget
