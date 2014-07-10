@@ -34,8 +34,12 @@
       name_zoom: 'zoom',
       // scaling factor applied to mousescroll events
       sliderZoomScalingFactor: 0.2,
+      // maximum zoom
+      sliderZoomLimit: 100,
       // by default, slider is appended to outcrop container
       sliderZoomAttachPoint: null,
+      // by default the slider zooms in going left
+      sliderReverse: false,
       // default intial values
       default_x: 0,
       default_y: 0,
@@ -146,7 +150,7 @@
       // show a zoom slider underneath the image
       this.options.sliderZoomAttachPoint.append('<div id="outcrop-zoomslider" class="slider"></div>');
       this.options.jqSlider = $('#outcrop-zoomslider').slider( {
-        value: 100 - that.options.zoom,
+        value: (that.options.sliderReverse ? that.options.zoom : 100 - that.options.zoom) * that.options.sliderZoomLimit / 100,
         slide: function(event, ui) {
           // indirect handler so that it always uses the latest stored that.options.moveZoomHandler
           return that.options.moveZoomHandler(event, ui);
@@ -402,9 +406,9 @@
           // normalise coordinates
           pointerNormX = pointerNativeX / that.options.imageWidthNative;
           pointerNormY = pointerNativeY / that.options.imageHeightNative;
-          // slider returns values from 0-100, reverse to 100-0
-          var sliderValue = 100 - ui.value;
-          // calculate new normalized coord, between 1 and say 0.15 (imageNormCoordZMin)
+          // slider returns values from 0-100, optionally reverse to 100-0, then scale to sliderZoomLimit
+          var sliderValue = (that.options.sliderReverse ? ui.value : 100 - ui.value) * that.options.sliderZoomLimit / 100;
+          // calculate new normalized coord, between sliderZoomLimit/100 and say 0.15 (imageNormCoordZMin)
           imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, imageNormCoordZMin, 1);
         }
         // recalc block
@@ -463,7 +467,7 @@
           // store coords in case this is the last frame before dragEnd/sliderStop
           that.options.x = imageNativeCoordX = Math.max((0 - offl) / imageNormCoordZ, 0);
           that.options.y = imageNativeCoordY = Math.max((0 - offt) / imageNormCoordZ, 0);
-          that.options.zoom = that.calcBounded(imageNormCoordZ * 100, 0, 100);
+          that.options.zoom = that.calcBounded(imageNormCoordZ * that.options.sliderZoomLimit, 0, that.options.sliderZoomLimit);
           // if option set, bounce corners
           if (that.options.bounceCorners) {
             if ((offl == 0) && (offt == 0)) {
@@ -487,6 +491,14 @@
       // solid to start, then border on two sides
     },
     
+    value: function() {
+      return {
+        'x': this.options.x,
+        'y': this.options.y,
+        'zoom': this.options.zoom,
+      }
+    },
+
     writeOutFormValues: function() {
       $('input[name="'+this.options.name_x+'"]').val(this.round(this.options.x)).trigger('change');
       $('input[name="'+this.options.name_y+'"]').val(this.round(this.options.y)).trigger('change');

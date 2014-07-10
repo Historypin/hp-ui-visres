@@ -24,16 +24,16 @@
     });
 
     // turn all classed images into outcrops using jQuery UI widget
-    $('.outcrop').outcrop({mode: "read"});
+    $('.outcrop').outcrop({ 'mode': 'read', sliderReverse: true });
 
     // when the edit button is clicked, make one outcrop editable
     $('#out-1-edit').click(function(event) {
       if ($('#out-1').outcrop('option', 'mode') == 'read') {
-        $('#out-1').outcrop({mode: "edit"});
+        $('#out-1').outcrop({ 'mode': 'edit', sliderReverse: true });
         // update message to done
         $(this).html('Done');
       } else {
-        $('#out-1').outcrop({mode: "read"});
+        $('#out-1').outcrop({ 'mode': 'read', sliderReverse: true });
         $(this).html('Edit');
       }
       // interrupt link to avoid # being appended to URL

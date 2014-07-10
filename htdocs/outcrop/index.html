@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Outcrop</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,10 +16,9 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/outcrop.css">
         <link rel="stylesheet" href="css/vendor/ui-lightness/jquery-ui-1.10.4.all.css">
-        <link rel="stylesheet" href="css/vendor/qunit/qunit-1.14.0.min.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body style="height: 100%;">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -29,7 +28,7 @@
         <p style="padding: 1.0em 0 0 3.0em; float: left;"><a id="out-1-edit" class="button" href="#">Edit</a></p>
         
         <!-- outcrop: show part of a big image -->
-        <div id="out-1" class="outcrop" style="width: 50%; height: 300px; margin-left: 25%;">
+        <div id="out-1" class="outcrop" style="width: 50%; height: 20em; margin-left: 25%;">
           <input id="demo_x" type="hidden" name="x" value="100" />
           <input id="demo_y" type="hidden" name="y" value="100" />
           <input id="demo_zoom" type="hidden" name="zoom" value="40" />
@@ -39,7 +38,7 @@
 
         <!-- optional link to trigger editing -->
         <p style="margin-top: 4.0em; margin-left: 20.0em;"></p>
-        <p style="font-size: 30%;"><a id="out-1-clearcookie" class="" href="./">Reset to original position</a></p>
+        <p style="font-size: 30%;"><a id="out-1-clearcookie" href="./">Reset to original position</a> | <a id="run-tests" href="./tests.html">Run tests</a></p>
 
         <div id="disqus_thread"></div>
         <script type="text/javascript">
@@ -53,16 +52,13 @@
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/vendor/qunit/qunit-1.14.0.min.js"></script>
         <script src="js/vendor/jquery.cookie.js"></script>
         <script src="js/vendor/jquery.mousewheel.min.js"></script>
         <!-- <script src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script> -->
         <script src="js/vendor/jquery-ui-1.10.4.all.min.js"></script>
         <script src="js/vendor/jquery-ui.outcrop.js"></script>
-        <script src="js/tests.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
