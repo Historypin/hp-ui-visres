@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.5
+ * v0.9.6
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -13,7 +13,7 @@
   $.widget( "shift.outcrop", {
 
     // default options
-    options: { 
+    options: {
       // settings
 
       // debug mode, send debugging messages to console if true
@@ -79,10 +79,10 @@
       // show a loading message in the middle of the crop area
       this.options.jq.append('<div class="message"><span>Large image<br />loading...</span></div>');
       loadingMess = this.options.jq.find('.message');
-      // read x, y and zoom out of the form elements
-      this.options.x = parseInt($('input[name="'+this.options.name_x+'"]').val(),10);
-      this.options.y = parseInt($('input[name="'+this.options.name_y+'"]').val(),10);
-      this.options.zoom = parseInt($('input[name="'+this.options.name_zoom+'"]').val(),10);
+      // read x, y and zoom out of the form elements only if not already explicitly set
+      if (this.options.x == null) { this.options.x = parseInt($('input[name="'+this.options.name_x+'"]').val(),10); }
+      if (this.options.y == null) { this.options.y = parseInt($('input[name="'+this.options.name_y+'"]').val(),10); }
+      if (this.options.zoom == null) { this.options.zoom = parseInt($('input[name="'+this.options.name_zoom+'"]').val(),10); }
       // setup defaults if form fields empty
       if (isNaN(this.options.x)) this.options.x = this.options.default_x;
       if (isNaN(this.options.y)) this.options.y = this.options.default_y;
