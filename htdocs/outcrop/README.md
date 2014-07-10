@@ -23,7 +23,9 @@ These form fields are read and written by outcrop.  They should be wrapped in so
 ```
 
 Values
+```
 x: +width to -width of image in pixels (e.g. -1024 to 1024 pixels)
 y: +height to-height of image in pixels (e.g. -768 to 768 pixels)
 zoom: 0-zoomlimit, where 0 is infinitely zoomed out (corrects to 0.1), 100 is native pixels 1:1, 200 is double-size
+```
 Zoomlimit is typically 100, though it can be altered in the settings
