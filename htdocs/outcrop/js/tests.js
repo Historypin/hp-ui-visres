@@ -55,14 +55,18 @@
       ok( jq.find('.cropped').length > 0, 'introduced inner container');
       // test outcrop mode
       ok( jq.outcrop('option', 'mode') == 'read', 'outcrop setup in read-mode');
-      // read out (default) x, y and zoom
-      if (imageLandscape) {
-        ok( jq.outcrop('option', 'x') == 0, 'aligned left');
-      } else {
-        ok( jq.outcrop('option', 'y') == 0, 'aligned top');
-      }
-      ok( jq.outcrop('option', 'zoom') == 0.1, 'zoomed all the way out, fit horizontally to fixed width (@'+(jq.outcrop('option', 'zoom'))+'%)');
-      jq.outcrop('destroy');
+      QUnit.stop();
+      setTimeout(function() {
+        // read out (default) x, y and zoom
+        if (imageLandscape) {
+          ok( jq.outcrop('option', 'x') == 0, 'aligned left');
+        } else {
+          ok( jq.outcrop('option', 'y') == 0, 'aligned top');
+        }
+        ok( jq.outcrop('option', 'zoom') == 0.1, 'zoomed all the way out, fit horizontally to fixed width (@'+(jq.outcrop('option', 'zoom'))+'%)');
+        jq.outcrop('destroy');
+        QUnit.start();
+      }, 100);
     });
 
     test( 'big image fixed container drag (bigfix)', function() {
@@ -100,7 +104,6 @@
     });
 */
 
-    QUnit.start();
   }
 
   // call init function

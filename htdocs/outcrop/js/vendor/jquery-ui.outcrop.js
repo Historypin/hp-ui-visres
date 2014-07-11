@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.6
+ * v0.9.7
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -491,7 +491,7 @@
       // solid to start, then border on two sides
     },
     
-    value: function() {
+    values: function() {
       return {
         'x': this.options.x,
         'y': this.options.y,
