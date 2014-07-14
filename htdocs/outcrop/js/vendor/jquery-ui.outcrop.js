@@ -43,7 +43,7 @@
       // default intial values
       default_x: 0,
       default_y: 0,
-      default_zoom: 0.1, // zoomed all the way out
+      default_zoom: 0.1, // zoomed all the way out, approximates 0 without div/zero errors
       // reset to centre of image on edit
       resetToCentreOnFirstRun: false,
 
@@ -55,8 +55,11 @@
       jqImg: null,
       jqImgClone: null,
       jqSlider: null,
+      // x offset in pixels
       x: null,
+      // y offset in pixels
       y: null,
+      // zoom value as image size percentage (e.g. 200% for 2x zoom)
       zoom: null,
       dragging: false,
     },
@@ -141,16 +144,18 @@
       var that = this;
       // show the drag cursor
       this.options.jq.addClass('edit');
-      // show a message in the middle of the crop area if set
+      // show a message in the middle of the crop area if set, and not already there
       if (this.options.showMessage != false) {
         this.options.jq.append('<div class="message"><span>'+this.options.showMessage+'</span></div>');
       }
       // create handler
       this.options.moveZoomHandler = this.getMoveZoomHandler(this.options.x, this.options.y, this.options.zoom, true);
       // show a zoom slider underneath the image
+      var sliderValue = (that.options.zoom / that.options.sliderZoomLimit) * 100;
       this.options.sliderZoomAttachPoint.append('<div id="outcrop-zoomslider" class="slider"></div>');
       this.options.jqSlider = $('#outcrop-zoomslider').slider( {
-        value: (that.options.sliderReverse ? that.options.zoom : 100 - that.options.zoom) * that.options.sliderZoomLimit / 100,
+        // slider value is always between 0 and 100
+        value: (that.options.sliderReverse ? 100 - sliderValue : sliderValue),
         slide: function(event, ui) {
           // indirect handler so that it always uses the latest stored that.options.moveZoomHandler
           return that.options.moveZoomHandler(event, ui);
@@ -240,7 +245,7 @@
         }
         // get the slider's current value
         sliderValue = that.options.jqSlider.slider('value');
-        // increment based on scroll but always at least +/-1 percentage point
+        // increment based on scroll but always at least +/-1 slider unit
         inc = event.deltaFactor * (0 - event.deltaY) * that.options.sliderZoomScalingFactor;
         inc = ( inc > 0 ? Math.max(inc, 1) : Math.min(inc, -1) );
         // apply new value to slider
@@ -284,7 +289,7 @@
      * l and t refer to offsets (e.g. css top and left)
      * @param x positive coordinate of image (in native pixels) to show in top-left of container
      * @param y positive coordinate of image (in native pixels) to show in top-left of container
-     * @param zoom scale of image (as a normalised percentage) where 100 is full-resolution (1:1 px) and 0 is container width
+     * @param zoom scale of image (as a percentage) where 100 is full-resolution (1:1 px) and 0 is container width
      * @param firstRun true if this is the first time we're initialising this handler
      */
     getMoveZoomHandler: function(x, y, zoom, firstRun) {
@@ -300,16 +305,17 @@
       // flag that we haven't captured the drag start coords yet
       var mouseDragStartX = -1, mouseDragStartY = -1;
       // capture input zoom as start value (unscaled coords)
-      var imageNormCoordZ = zoom / 100; // 0-1
+      var imageNormCoordZ = zoom / 100; // 0-1 (for 100%) or 0-2 (for 200%)
       // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
       if (firstRun && that.options.resetToCentreOnFirstRun) {
         // set zoom to default
-        imageNormCoordZ = that.options.default_zoom / 100;
+        imageNormCoordZ = that.options.default_zoom / that.options.sliderZoomLimit;
       }
       // compute the minimum zoom amount that's needed for this image to fill its container
       imageNormCoordZMin = Math.max(containerWidth / that.options.imageWidthNative, containerHeight / that.options.imageHeightNative);
+      imageNormCoordZMax = that.options.sliderZoomLimit / 100;
       // crop imageNormCoordZ using computed imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
-      imageNormCoordZ = that.calcBounded(imageNormCoordZ, imageNormCoordZMin, 1);
+      imageNormCoordZ = that.calcBounded(imageNormCoordZ, imageNormCoordZMin, imageNormCoordZMax);
       // calculate offsets (scaled offsets)
       imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
       imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
@@ -347,6 +353,7 @@
         // store back modified coords, as if we'd done a drag and finished there
         that.options.x = imageNativeCoordX;
         that.options.y = imageNativeCoordY;
+        // zoom is normCoord (0 < imageNormCoordZMax), e.g. could be 0-2.0, so x100
         that.options.zoom = imageNormCoordZ * 100;
         that.writeOutFormValues();
       }
@@ -407,9 +414,9 @@
           pointerNormX = pointerNativeX / that.options.imageWidthNative;
           pointerNormY = pointerNativeY / that.options.imageHeightNative;
           // slider returns values from 0-100, optionally reverse to 100-0, then scale to sliderZoomLimit
-          var sliderValue = (that.options.sliderReverse ? ui.value : 100 - ui.value) * that.options.sliderZoomLimit / 100;
-          // calculate new normalized coord, between sliderZoomLimit/100 and say 0.15 (imageNormCoordZMin)
-          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, imageNormCoordZMin, 1);
+          var sliderValue = (that.options.sliderReverse ? 100 - ui.value : ui.value) * imageNormCoordZMax;
+          // calculate new normalized coord, between sliderZoomLimit/100 and near 0, say 2-0.15 (imageNormCoordZMin)
+          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, imageNormCoordZMin, imageNormCoordZMax);
         }
         // recalc block
         imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
@@ -467,7 +474,7 @@
           // store coords in case this is the last frame before dragEnd/sliderStop
           that.options.x = imageNativeCoordX = Math.max((0 - offl) / imageNormCoordZ, 0);
           that.options.y = imageNativeCoordY = Math.max((0 - offt) / imageNormCoordZ, 0);
-          that.options.zoom = that.calcBounded(imageNormCoordZ * that.options.sliderZoomLimit, 0, that.options.sliderZoomLimit);
+          that.options.zoom = that.calcBounded(imageNormCoordZ * 100, 0, that.options.sliderZoomLimit);
           // if option set, bounce corners
           if (that.options.bounceCorners) {
             if ((offl == 0) && (offt == 0)) {
