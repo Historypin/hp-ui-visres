@@ -86,6 +86,27 @@
       // @todo try and do a massive drag, check that it clipped against edges
     });
 
+    test( 'big image fluid container (bigflu)', function() {
+      // add fluid container inside fixed-size container (modelling browser viewport)
+      $('#qunit-fixture').append('<div style="width: 250px; height: 200px;"><div id="qunit-bigflu" class="outcrop" style="width: 80%; height: 75%;"></div></div>');
+      // test container size
+      var jq = $('#qunit-bigflu');
+      ok ( jq.width() == 200 && jq.height() == 150, 'outcrop container correct size');
+      // put a big image inside it
+      jq.append('<img alt="big image of cars from 1980" src="img/AH180.jpg" />');
+      // outcrop it (edit-mode, top-left at 100%)
+      jq.outcrop( { 'mode': 'edit', 'x': 0, 'y': 0, 'zoom': 100 });
+
+      // START HERE
+      // jq.outcrop('centre');
+
+      // read out values in one go
+      var values = jq.outcrop('values');
+      ok( values.x == 0, 'aligned left');
+      ok( values.y == 0, 'aligned left');
+      ok( values.zoom == 100, 'zoomed all the way in');
+    });
+
     test( 'zoom slider in reverse (slidrev)', function() {
       // add small fixed-size container
       $('#qunit-fixture').append('<div id="qunit-slidrev" class="outcrop" style="width: 200px; height: 150px;"></div>');

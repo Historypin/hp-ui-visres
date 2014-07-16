@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.7
+ * v0.9.10
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -97,7 +97,7 @@
       // once image is loaded, read dimensions and prep
       this.options.jqImg.one('load', function() {
         // read image dimensions
-        that.options.imageWidthNative = this.width, that.options.imageHeightNative = this.height;
+        that.options.imageNativeWidth = this.width, that.options.imageNativeHeight = this.height;
         // create handler, which moves/scales the image to this coord
         that.options.moveZoomHandler = that.getMoveZoomHandler(that.options.x, that.options.y, that.options.zoom, true);
         // hide the loading message
@@ -281,7 +281,88 @@
       }
       return Math.max(Math.min(off, max), min);
     },
-      
+
+    /**
+     * @return {object} a calculation context for computing image properties
+     */
+    getCalcContext: function() {
+      return {
+
+        // VARIABLES
+
+        'imageScaledWidth': 0,
+        'imageScaledHeight': 0,
+        'imageScaledCoordX': 0,
+        'imageScaledCoordY': 0,
+        'imageSDiffWidth': 0,
+        'imageSDiffHeight': 0,
+        'imageOffsetLeft': 0,
+        'imageOffsetTop': 0,
+        'imageOffsetWidth': 0,
+        'containerTop': 0,
+        'containerLeft': 0,
+        'containerWidth': 0,
+        'containerHeight': 0,
+        'imageMinimumWidth': 0,
+        'imageMinimumHeight': 0,
+        'imageNormCoordZ': 0,
+        'imageNormCoordZMin': 0,
+        'imageNormCoordZMax': 0,
+
+        // FUNCTIONS
+
+        /**
+         * setup the calculations
+         */
+        'init': function(that, x, y, zoom, centre) {
+          var cc = this;
+          // find container position and dimensions
+          cc.containerTop = that.options.jq.offset().top;
+          cc.containerLeft = that.options.jq.offset().left;
+          cc.containerWidth = that.options.jq.width();
+          cc.containerHeight = that.options.jq.height();
+          // calculate minimum width
+          cc.imageMinimumWidth = cc.containerWidth;
+          cc.imageMinimumHeight = cc.containerHeight;
+          // capture input zoom as start value (unscaled coords)
+          cc.imageNormCoordZ = zoom / 100; // 0-1 (for 100%) or 0-2 (for 200%)
+          if (centre) {
+            // set zoom to default
+            cc.imageNormCoordZ = that.options.default_zoom / that.options.sliderZoomLimit;
+          }
+          // compute the minimum zoom amount that's needed for this image to fill its container
+          cc.imageNormCoordZMin = Math.max(cc.containerWidth / that.options.imageNativeWidth, cc.containerHeight / that.options.imageNativeHeight);
+          cc.imageNormCoordZMax = that.options.sliderZoomLimit / 100;
+          // crop cc.imageNormCoordZ using computed cc.imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
+          cc.imageNormCoordZ = that.calcBounded(cc.imageNormCoordZ, cc.imageNormCoordZMin, cc.imageNormCoordZMax);
+          // calculate offsets (scaled offsets)
+          cc.imageScaledWidth = that.options.imageNativeWidth * cc.imageNormCoordZ;
+          cc.imageScaledHeight = that.options.imageNativeHeight * cc.imageNormCoordZ;
+          cc.imageSDiffWidth = cc.imageScaledWidth - cc.imageMinimumWidth;
+          cc.imageSDiffHeight = cc.imageScaledHeight - cc.imageMinimumHeight;
+          // capture input x,y (start values) as native coords
+          cc.imageScaledCoordX = x;
+          cc.imageScaledCoordY = y;
+          // if we should re-centre the image
+          if (centre) {
+            // image has been scaled, so need to calc centre based on scaled coords
+            that.options.x = Math.max(cc.imageSDiffWidth / 2, 0) / cc.imageNormCoordZ;
+            that.options.y = Math.max(cc.imageSDiffHeight / 2, 0) / cc.imageNormCoordZ;
+            // zoom is normCoord (0 < cc.imageNormCoordZMax), e.g. could be 0-2.0, so x100
+            that.options.zoom = cc.imageNormCoordZ * 100;
+            that.writeOutFormValues();
+            // work backwards from offsets to native coords
+            cc.imageScaledCoordX = that.options.x;
+            cc.imageScaledCoordY = that.options.y;
+          }
+          // use zoom and input coords to calculate scaled cropped offsets
+          cc.imageOffsetWidth = cc.imageScaledWidth;
+          cc.imageOffsetLeft = that.calcBounded(-cc.imageScaledCoordX * cc.imageNormCoordZ, -cc.imageSDiffWidth, 0);
+          cc.imageOffsetTop = that.calcBounded(-cc.imageScaledCoordY * cc.imageNormCoordZ, -cc.imageSDiffHeight, 0);
+        }
+      };
+    },
+
     /**
      * getMoveZoomHandler is called frequently during the life of an outcrop controller.  It's called at start-up, then again
      *   when the image finishes loading.
@@ -293,41 +374,21 @@
      * @param firstRun true if this is the first time we're initialising this handler
      */
     getMoveZoomHandler: function(x, y, zoom, firstRun) {
-      var imageWidthScaled, imageHeightScaled;
-      var imageWidthSDiff, imageHeightSDiff;
-      // setup context for use in returned function
+      // setup calculation context
+      var cc = this.getCalcContext();
+      // setup execution context for use in returned function
       var that = this;
-      // find container position and dimensions
-      var containerTop = this.options.jq.offset().top, containerLeft = this.options.jq.offset().left;
-      var containerWidth = this.options.jq.width(), containerHeight = this.options.jq.height();
-      // calculate minimum width
-      var imageWidthMinimum = containerWidth, imageHeightMinimum = containerHeight;
+      // centre if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
+      cc.init(this, x, y, zoom, firstRun && that.options.resetToCentreOnFirstRun);
       // flag that we haven't captured the drag start coords yet
       var mouseDragStartX = -1, mouseDragStartY = -1;
-      // capture input zoom as start value (unscaled coords)
-      var imageNormCoordZ = zoom / 100; // 0-1 (for 100%) or 0-2 (for 200%)
-      // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
-      if (firstRun && that.options.resetToCentreOnFirstRun) {
-        // set zoom to default
-        imageNormCoordZ = that.options.default_zoom / that.options.sliderZoomLimit;
-      }
-      // compute the minimum zoom amount that's needed for this image to fill its container
-      imageNormCoordZMin = Math.max(containerWidth / that.options.imageWidthNative, containerHeight / that.options.imageHeightNative);
-      imageNormCoordZMax = that.options.sliderZoomLimit / 100;
-      // crop imageNormCoordZ using computed imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
-      imageNormCoordZ = that.calcBounded(imageNormCoordZ, imageNormCoordZMin, imageNormCoordZMax);
-      // calculate offsets (scaled offsets)
-      imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
-      imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
-      imageWidthSDiff = imageWidthScaled - imageWidthMinimum;
-      imageHeightSDiff = imageHeightScaled - imageHeightMinimum;
       // work out major axis by comparing the amount of slack on x vs y axes
-      var majorWidth = (imageWidthSDiff > imageHeightSDiff);
+      var majorWidth = (cc.imageSDiffWidth > cc.imageSDiffHeight);
       if (false) {
-        console.log('imageWidthSDiff['+imageWidthSDiff+'] imageHeightSDiff['+imageHeightSDiff+'] majorWidth['+majorWidth+']');        
+        console.log('cc.imageSDiffWidth['+cc.imageSDiffWidth+'] cc.imageSDiffHeight['+cc.imageSDiffHeight+'] majorWidth['+majorWidth+']');        
       }
       // check that there major axis has some slack (i.e. the image is bigger than the container along the major axis)
-      if ((majorWidth && imageWidthSDiff <= 0) || (!majorWidth && imageHeightSDiff <= 0)) {
+      if ((majorWidth && cc.imageSDiffWidth <= 0) || (!majorWidth && cc.imageSDiffHeight <= 0)) {
         // use defaults
         that.options.x = that.options.default_x;
         that.options.y = that.options.default_y;
@@ -343,37 +404,19 @@
         // return inactive event handler, because we can't do any zooming/dragging
         return function(event, ui) { };
       }
-      // capture input x,y as start values (unscaled coords)
-      var imageNativeCoordX = x, imageNativeCoordY = y;
-      // if this a firstRun setup and we're supposed to resetToCentreOnFirstRun
-      if (firstRun && that.options.resetToCentreOnFirstRun) {
-        // set the imageNativeCoordX/Y as the image centre, which means it displays slightly off-centre, but that's ok
-        imageNativeCoordX = (that.options.imageWidthNative / 2) - (containerWidth / 2);
-        imageNativeCoordY = (that.options.imageHeightNative / 2) - (containerHeight / 2);
-        // store back modified coords, as if we'd done a drag and finished there
-        that.options.x = imageNativeCoordX;
-        that.options.y = imageNativeCoordY;
-        // zoom is normCoord (0 < imageNormCoordZMax), e.g. could be 0-2.0, so x100
-        that.options.zoom = imageNormCoordZ * 100;
-        that.writeOutFormValues();
-      }
       // output debugging information for cropped x,y,zoom
       if (that.options.debug) {
         // optional debugging output
-        console.log('imageNativeCoordX['+imageNativeCoordX+'] imageNativeCoordY['+imageNativeCoordY+'] imageNormCoordZ['+imageNormCoordZ+']');
+        console.log('cc.imageScaledCoordX['+cc.imageScaledCoordX+'] cc.imageScaledCoordY['+cc.imageScaledCoordY+'] cc.imageNormCoordZ['+cc.imageNormCoordZ+']');
       }
-      // use zoom and input coords to calculate scaled cropped offsets
-      var imageOffsetWidth = imageWidthScaled;
-      var imageOffsetLeft = that.calcBounded(-imageNativeCoordX * imageNormCoordZ, -imageWidthSDiff, 0);
-      var imageOffsetTop = that.calcBounded(-imageNativeCoordY * imageNormCoordZ, -imageHeightSDiff, 0);
       // create start variants, necessary for drag comparison
-      var imageOffsetStartLeft = imageOffsetLeft;
-      var imageOffsetStartTop = imageOffsetTop;
+      var imageOffsetStartLeft = cc.imageOffsetLeft;
+      var imageOffsetStartTop = cc.imageOffsetTop;
       // apply initial values to image
       this.options.jqImg.css( {
-        'top': that.round(imageOffsetTop) + 'px',
-        'left': that.round(imageOffsetLeft) + 'px',
-        'width': that.round(imageOffsetWidth) + 'px',
+        'top': that.round(cc.imageOffsetTop) + 'px',
+        'left': that.round(cc.imageOffsetLeft) + 'px',
+        'width': that.round(cc.imageOffsetWidth) + 'px',
         'height': 'auto',
       });
       // flag that clone is created but not visible yet
@@ -391,8 +434,8 @@
         var pointerNormX, pointerNormY;
         // if zooming without scrolling, make effective mouse position be the centre of the container
         if (event.type == 'slide') {
-          event.offsetX = containerWidth / 2;
-          event.offsetY = containerHeight / 2;
+          event.offsetX = cc.containerWidth / 2;
+          event.offsetY = cc.containerHeight / 2;
         }
         // compute based on the type of event we're handling
         if (event.type == 'mousemove') {
@@ -408,44 +451,44 @@
           dy = event.pageY - mouseDragStartY;
         } else if ((event.type == 'slide') || (event.type == 'scrollzoom')) {
           // work out position of pointer using native coord and scaled current position (offsetX)
-          pointerNativeX = imageNativeCoordX + (event.offsetX / imageWidthScaled) * that.options.imageWidthNative;
-          pointerNativeY = imageNativeCoordY + (event.offsetY / imageHeightScaled) * that.options.imageHeightNative;
+          pointerNativeX = cc.imageScaledCoordX + (event.offsetX / cc.imageScaledWidth) * that.options.imageNativeWidth;
+          pointerNativeY = cc.imageScaledCoordY + (event.offsetY / cc.imageScaledHeight) * that.options.imageNativeHeight;
           // normalise coordinates
-          pointerNormX = pointerNativeX / that.options.imageWidthNative;
-          pointerNormY = pointerNativeY / that.options.imageHeightNative;
+          pointerNormX = pointerNativeX / that.options.imageNativeWidth;
+          pointerNormY = pointerNativeY / that.options.imageNativeHeight;
           // slider returns values from 0-100, optionally reverse to 100-0, then scale to sliderZoomLimit
-          var sliderValue = (that.options.sliderReverse ? 100 - ui.value : ui.value) * imageNormCoordZMax;
-          // calculate new normalized coord, between sliderZoomLimit/100 and near 0, say 2-0.15 (imageNormCoordZMin)
-          imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, imageNormCoordZMin, imageNormCoordZMax);
+          var sliderValue = (that.options.sliderReverse ? 100 - ui.value : ui.value) * cc.imageNormCoordZMax;
+          // calculate new normalized coord, between sliderZoomLimit/100 and near 0, say 2-0.15 (cc.imageNormCoordZMin)
+          cc.imageNormCoordZ = that.calcBounded((sliderValue / 100) + 0.0001, cc.imageNormCoordZMin, cc.imageNormCoordZMax);
         }
         // recalc block
-        imageWidthScaled = that.options.imageWidthNative * imageNormCoordZ;
-        imageHeightScaled = that.options.imageHeightNative * imageNormCoordZ;
-        imageWidthSDiff = imageWidthScaled - imageWidthMinimum;
-        imageHeightSDiff = imageHeightScaled - imageHeightMinimum;
+        cc.imageScaledWidth = that.options.imageNativeWidth * cc.imageNormCoordZ;
+        cc.imageScaledHeight = that.options.imageNativeHeight * cc.imageNormCoordZ;
+        cc.imageSDiffWidth = cc.imageScaledWidth - cc.imageMinimumWidth;
+        cc.imageSDiffHeight = cc.imageScaledHeight - cc.imageMinimumHeight;
         // action-specific calculation
         if (event.type == 'mousemove') {
           // compute offset of image to container, then bound between 0 and max real image dimensions
-          offl = that.calcBounded(imageOffsetStartLeft + dx, -imageWidthSDiff, 0);
-          offt = that.calcBounded(imageOffsetStartTop + dy, -imageHeightSDiff, 0);
-          // used to bound by that.options.imageWidthNative, but smaller-than-container images need to fill container (therefore > native)
-          offw = that.calcBounded(imageWidthScaled, containerWidth, imageWidthScaled);
+          offl = that.calcBounded(imageOffsetStartLeft + dx, -cc.imageSDiffWidth, 0);
+          offt = that.calcBounded(imageOffsetStartTop + dy, -cc.imageSDiffHeight, 0);
+          // used to bound by that.options.imageNativeWidth, but smaller-than-container images need to fill container (therefore > native)
+          offw = that.calcBounded(cc.imageScaledWidth, cc.containerWidth, cc.imageScaledWidth);
           if (that.options.debug) {
             // optional debugging output
-            console.log('imageOffsetStartLeft['+imageOffsetStartLeft+'] imageOffsetStartTop['+imageOffsetStartTop+'] imageNormCoordZ['+imageNormCoordZ+'] px['+event.pageX+'] py['+event.pageY+'] dx['+dx+'] dy['+dy+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
+            console.log('imageOffsetStartLeft['+imageOffsetStartLeft+'] imageOffsetStartTop['+imageOffsetStartTop+'] cc.imageNormCoordZ['+cc.imageNormCoordZ+'] px['+event.pageX+'] py['+event.pageY+'] dx['+dx+'] dy['+dy+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
           }
         } else if ((event.type == 'slide') || (event.type == 'scrollzoom')) {
           // new coord is normalised pointer coord mapped back onto image, translated back to cursor position, then bound between 0 and max real image dimensions
-          offl = that.calcBounded(-pointerNormX * imageWidthScaled + event.offsetX, -imageWidthSDiff, 0);
-          offt = that.calcBounded(-pointerNormY * imageHeightScaled + event.offsetY, -imageHeightSDiff, 0);
-          offw = that.calcBounded(imageWidthScaled, containerWidth, imageWidthScaled);
+          offl = that.calcBounded(-pointerNormX * cc.imageScaledWidth + event.offsetX, -cc.imageSDiffWidth, 0);
+          offt = that.calcBounded(-pointerNormY * cc.imageScaledHeight + event.offsetY, -cc.imageSDiffHeight, 0);
+          offw = that.calcBounded(cc.imageScaledWidth, cc.containerWidth, cc.imageScaledWidth);
           if (that.options.debug) {
             // optional debugging output
-            console.log('imageOffsetLeft['+imageOffsetLeft+'] imageOffsetTop['+imageOffsetTop+'] imageWidthSDiff['+imageWidthSDiff+'] imageHeightSDiff['+imageHeightSDiff+'] imageNormCoordZ['+imageNormCoordZ+'] offsetX['+event.offsetX+'] offsetY['+event.offsetY+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
+            console.log('cc.imageOffsetLeft['+cc.imageOffsetLeft+'] cc.imageOffsetTop['+cc.imageOffsetTop+'] cc.imageSDiffWidth['+cc.imageSDiffWidth+'] cc.imageSDiffHeight['+cc.imageSDiffHeight+'] cc.imageNormCoordZ['+cc.imageNormCoordZ+'] offsetX['+event.offsetX+'] offsetY['+event.offsetY+'] offl['+offl+'] offt['+offt+'] offw['+offw+']');
           }
         }
         // if there's been a coordinate change
-        if ((offl != imageOffsetLeft) || (offt != imageOffsetTop) || (offw != imageOffsetWidth)) {
+        if ((offl != cc.imageOffsetLeft) || (offt != cc.imageOffsetTop) || (offw != cc.imageOffsetWidth)) {
           // write to coordinates of image
           that.options.jqImg.css( {
             // image_width - container_width > x > 0
@@ -463,8 +506,8 @@
             }
             if (that.options.jqImgClone != null) {
               that.options.jqImgClone.css( {
-                'left': that.round(containerLeft + offl) + 'px',
-                'top': that.round(containerTop + offt) + 'px',
+                'left': that.round(cc.containerLeft + offl) + 'px',
+                'top': that.round(cc.containerTop + offt) + 'px',
                 'width': that.round(offw) + 'px',
                 'opacity': 0.5,
                 'display': 'block'
@@ -472,22 +515,22 @@
             }
           }
           // store coords in case this is the last frame before dragEnd/sliderStop
-          that.options.x = imageNativeCoordX = Math.max((0 - offl) / imageNormCoordZ, 0);
-          that.options.y = imageNativeCoordY = Math.max((0 - offt) / imageNormCoordZ, 0);
-          that.options.zoom = that.calcBounded(imageNormCoordZ * 100, 0, that.options.sliderZoomLimit);
+          that.options.x = cc.imageScaledCoordX = Math.max(-offl / cc.imageNormCoordZ, 0);
+          that.options.y = cc.imageScaledCoordY = Math.max(-offt / cc.imageNormCoordZ, 0);
+          that.options.zoom = that.calcBounded(cc.imageNormCoordZ * 100, 0, that.options.sliderZoomLimit);
           // if option set, bounce corners
           if (that.options.bounceCorners) {
             if ((offl == 0) && (offt == 0)) {
               that.bounceCorner(0,0);
             }
-            if ((offl == 0+containerWidth-that.options.imageWidthNative) && (offt == 0+containerHeight-that.options.imageHeightNative)) {
-              that.bounceCorner(containerWidth, containerHeight);
+            if ((offl == 0+cc.containerWidth-that.options.imageNativeWidth) && (offt == 0+cc.containerHeight-that.options.imageNativeHeight)) {
+              that.bounceCorner(cc.containerWidth, cc.containerHeight);
             }
           }
           // remember computed offset for comparison next time
-          imageOffsetLeft = offl;
-          imageOffsetTop = offt;
-          imageOffsetWidth = offw;
+          cc.imageOffsetLeft = offl;
+          cc.imageOffsetTop = offt;
+          cc.imageOffsetWidth = offw;
         }
       };
     },
@@ -520,3 +563,27 @@
     }
   });
 }( window.jQuery ) );
+
+/**
+ * jQuery Tiny Pub/Sub - v0.7 - 10/27/2011
+ * http://benalman.com/
+ * Copyright (c) 2011 "Cowboy" Ben Alman; Licensed MIT, GPL
+ */
+
+(function($) {
+
+  var o = $({});
+
+  $.subscribe = function() {
+    o.on.apply(o, arguments);
+  };
+
+  $.unsubscribe = function() {
+    o.off.apply(o, arguments);
+  };
+
+  $.publish = function() {
+    o.trigger.apply(o, arguments);
+  };
+
+}(window.jQuery));
