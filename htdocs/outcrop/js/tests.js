@@ -47,15 +47,14 @@
       $('#qunit-fixture').append('<div id="qunit-sutdo" class="outcrop" style="width: 200px; height: 150px;"></div>');
       // put a big image inside it
       var jq = $('#qunit-sutdo').append('<img alt="big image of cars from 1980" src="'+imagePath+'" />');
-      // outcrop it (read-mode, default options but force to ignore form fields)
-      jq.outcrop({});
-      // test that the container is being marked
-      ok( jq.hasClass('outcrop'), 'outcrop container marked outcrop');
-      ok( jq.find('.cropped').length > 0, 'introduced inner container');
-      // test outcrop mode
-      ok( jq.outcrop('option', 'mode') == 'read', 'outcrop setup in read-mode');
-      QUnit.stop();
-      setTimeout(function() {
+      // wait until outcrop is ready before testing
+      jq.bind('outcropready', function(event, ui) {
+        QUnit.start();
+        // test that the container is being marked
+        ok( jq.hasClass('outcrop'), 'outcrop container marked outcrop');
+        ok( jq.find('.cropped').length > 0, 'introduced inner container');
+        // test outcrop mode
+        ok( jq.outcrop('option', 'mode') == 'read', 'outcrop setup in read-mode');
         // read out (default) x, y and zoom
         if (imageLandscape) {
           ok( jq.outcrop('option', 'x') == 0, 'aligned left');
@@ -63,9 +62,12 @@
           ok( jq.outcrop('option', 'y') == 0, 'aligned top');
         }
         ok( jq.outcrop('option', 'zoom') == 0.1, 'zoomed all the way out, fit horizontally to fixed width (@'+(jq.outcrop('option', 'zoom'))+'%)');
+        // destroy
         jq.outcrop('destroy');
-        QUnit.start();
-      }, 100);
+      });
+      QUnit.stop();
+      // outcrop it (read-mode, default options but force to ignore form fields)
+      jq.outcrop({});
     });
 
     test( 'big image fixed container drag (bigfix)', function() {
@@ -73,38 +75,57 @@
       $('#qunit-fixture').append('<div id="qunit-bigfix" class="outcrop" style="width: 200px; height: 150px;"></div>');
       // put a big image inside it
       var jq = $('#qunit-bigfix').append('<img alt="big image of cars from 1980" src="img/AH180.jpg" />');
+      // wait until outcrop is ready before testing
+      jq.bind('outcropready', function(event, ui) {
+        QUnit.start();
+        // test outcrop mode
+        ok( jq.outcrop('option', 'mode') == 'edit', 'outcrop setup in edit-mode');
+        // read out values in one go
+        var values = jq.outcrop('values');
+        ok( values.x == 0, 'aligned left');
+        ok( values.y == 0, 'aligned left');
+        ok( values.zoom == 100, 'zoomed all the way in');
+        // @todo do a small drag, check ok
+        // @todo try and do a massive drag, check that it clipped against edges
+      });
+      QUnit.stop();
       // outcrop it (edit-mode, top-left at 100%)
       jq.outcrop( { 'mode': 'edit', 'x': 0, 'y': 0, 'zoom': 100 });
-      // test outcrop mode
-      ok( jq.outcrop('option', 'mode') == 'edit', 'outcrop setup in edit-mode');
-      // read out values in one go
-      var values = jq.outcrop('values');
-      ok( values.x == 0, 'aligned left');
-      ok( values.y == 0, 'aligned left');
-      ok( values.zoom == 100, 'zoomed all the way in');
-      // @todo do a small drag, check ok
-      // @todo try and do a massive drag, check that it clipped against edges
     });
 
-    test( 'big image fluid container (bigflu)', function() {
+    test( 'big image fluid container resize (bigflu)', function() {
+      var container = { 'x': 250, 'y': 200 };
+      var fill = { 'x': 0.8, 'y': 0.75 };
       // add fluid container inside fixed-size container (modelling browser viewport)
-      $('#qunit-fixture').append('<div style="width: 250px; height: 200px;"><div id="qunit-bigflu" class="outcrop" style="width: 80%; height: 75%;"></div></div>');
+      $('#qunit-fixture').append('<div id="qunit-bigflu-outer" style="width: '+container.x+'px; height: '+container.y+'px;"><div id="qunit-bigflu" class="outcrop" style="width: '+fill.x*100+'%; height: '+fill.y*100+'%;"></div></div>');
       // test container size
       var jq = $('#qunit-bigflu');
-      ok ( jq.width() == 200 && jq.height() == 150, 'outcrop container correct size');
+      ok ( jq.width() == (container.x * fill.x) && jq.height() == (container.y * fill.y), 'outcrop container correct size');
       // put a big image inside it
       jq.append('<img alt="big image of cars from 1980" src="img/AH180.jpg" />');
+      // wait until outcrop is ready before testing
+      jq.bind('outcropready', function(event, ui) {
+        QUnit.start();
+        // centre image
+        jq.outcrop('centre');
+        // read out values in one go
+        var values = jq.outcrop('values');
+        equal( values.x, (imageWidth / 2) - (container.x * fill.x / 2), 'centred x['+values.x+']');
+        equal( values.y, (imageHeight / 2) - (container.y * fill.y / 2), 'centred y['+values.y+']');
+        equal( values.zoom, 100, 'zoomed all the way in');
+        // now resize the outer container to mimic a browser window resize
+        container = { 'x': 500, 'y': 400 };
+        $('#qunit-bigflu-outer').css({ 'width': container.x+'px', 'height': container.y+'px' });
+        $(window).resize();
+        // re-check the values
+        var values = jq.outcrop('values');
+        equal( values.x, (imageWidth / 2) - (container.x * fill.x / 2), 'centred x['+values.x+']');
+        equal( values.y, (imageHeight / 2) - (container.y * fill.y / 2), 'centred y['+values.y+']');
+        equal( values.zoom, 100, 'zoomed all the way in');
+      });
+      QUnit.stop();
       // outcrop it (edit-mode, top-left at 100%)
       jq.outcrop( { 'mode': 'edit', 'x': 0, 'y': 0, 'zoom': 100 });
-
-      // START HERE
-      // jq.outcrop('centre');
-
-      // read out values in one go
-      var values = jq.outcrop('values');
-      ok( values.x == 0, 'aligned left');
-      ok( values.y == 0, 'aligned left');
-      ok( values.zoom == 100, 'zoomed all the way in');
     });
 
     test( 'zoom slider in reverse (slidrev)', function() {
@@ -137,14 +158,17 @@
       $('#qunit-fixture').append('<div id="qunit-slid200" class="outcrop" style="width: 200px; height: 150px;"></div>');
       // put a big image inside it
       var jq = $('#qunit-slid200').append('<img alt="big image of cars from 1980" src="img/AH180.jpg" />');
+      // wait until outcrop is ready before testing
+      jq.bind('outcropready', function(event, ui) {
+        // get slider position (slider still on 0-100 scale)
+        var jqSlider = jq.outcrop('option', 'jqSlider');
+        ok( jqSlider.slider('value') == 100, 'slider at full ('+jqSlider.slider('value')+')' );
+        // get the image size, check 200%
+        ok( jq.find('.cropped img').width() == imageWidth * 200 / 100, 'image at 200%' );
+        jq.outcrop('destroy');
+      });
       // outcrop it (edit-mode, top-left at 100%)
       jq.outcrop( { 'mode': 'edit', 'x': 0, 'y': 0, 'zoom': 200, 'sliderZoomLimit': 200 } );
-      // get slider position (slider still on 0-100 scale)
-      var jqSlider = jq.outcrop('option', 'jqSlider');
-      ok( jqSlider.slider('value') == 100, 'slider at full ('+jqSlider.slider('value')+')' );
-      // get the image size, check 200%
-      ok( jq.find('.cropped img').width() == imageWidth * 200 / 100, 'image at 200%' );
-      jq.outcrop('destroy');
     });
 
   }

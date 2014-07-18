@@ -110,7 +110,9 @@ body {
     text-decoration: none;
 }
 
-
+#out-1 {
+    border: 1px solid #000000;
+}
 
 
 
