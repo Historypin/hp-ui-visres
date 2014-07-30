@@ -1,0 +1,3 @@
+[submodule "htdocs/gallerystruct/subcomponents/structuredfun-core"]
+	path = htdocs/gallerystruct/subcomponents/structuredfun-core
+	url = git@github.com:lightenna/structuredfun-core.git
