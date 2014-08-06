@@ -1,5 +1,5 @@
 
-ul.masonry {
-
+#masonry .cell {
+  width: 30%;
 }
 
