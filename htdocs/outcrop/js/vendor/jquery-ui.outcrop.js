@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.11
+ * v0.9.12
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -83,10 +83,35 @@
       }
     },
 
+    // @return {object} jQuery deferred for promising execution on completion (resync)
+    'refreshImage': function() {
+      var that = this;
+      var deferred = $.Deferred();
+      var loadingMess = this.options.jq.find('.message');
+      var jqImg = this.options.jqImg = this.options.jq.find('img');
+      // wait until image is loaded before triggering 'ready' event
+      var im = new Image();
+      im.onload = function() {
+        // read image dimensions
+        that.options.imageNativeWidth = im.width, that.options.imageNativeHeight = im.height;
+        // create handler, which moves/scales the image to this coord
+        that.options.moveZoomHandler = that._getMoveZoomHandler(true);
+        if (loadingMess.length) {
+          // hide the loading message
+          loadingMess.remove();
+          // show image
+          jqImg.show().animate( { opacity: 1.0 }, 200);
+        }
+        // resolve deferred
+        deferred.resolve();
+      }
+      im.src = jqImg.attr('src');
+      return deferred;
+    },
+
     // setup the widget
     '_create': function() {
-      var that = this, loadingMess;
-      var deferred = $.Deferred();
+      var that = this;
       // assign this instance an ID
       this.options.id = intseq++;
       // make sure we've got the outcrop class on the called container $('<x>').outcrop();
@@ -105,7 +130,6 @@
       this.options.jq = $('#outcrop-wrapid-' + this.options.id);
       // show a loading message in the middle of the crop area
       this.options.jq.append('<div class="message"><span>Large image<br />loading...</span></div>');
-      loadingMess = this.options.jq.find('.message');
       // read x, y and zoom out of the form elements only if not already explicitly set
       if (this.options.x == null) { this.options.x = parseInt($('input[name="'+this.options.name_x+'"]').val(),10); }
       if (this.options.y == null) { this.options.y = parseInt($('input[name="'+this.options.name_y+'"]').val(),10); }
@@ -115,29 +139,14 @@
       if (isNaN(this.options.y)) this.options.y = this.options.default_y;
       if (isNaN(this.options.zoom)) this.options.zoom = this.options.default_zoom;
       // once image is loaded, read dimensions and prep
-      this.options.jqImg.one('load', function() {
-        // read image dimensions
-        that.options.imageNativeWidth = this.width, that.options.imageNativeHeight = this.height;
-        // create handler, which moves/scales the image to this coord
-        that.options.moveZoomHandler = that._getMoveZoomHandler(true);
-        // hide the loading message
-        loadingMess.remove();
-        // show image
-        $(this).show().animate( { opacity: 1.0 }, 200);
-        // resolve deferred
-        deferred.resolve();
-      }).each(function() {
-        if(this.complete) $(this).load();
+      this.refreshImage().done(function() {
+        // then fire ready event
+        that._trigger('ready');
       });
       // if we're launching straight into an edit, set it up
       if (this.options.mode == 'edit') {
         this._setupEdit();
       }
-      // wait until image is loaded before triggering 'ready' event
-      deferred.then(function() {
-        // fire ready event
-        that._trigger('ready');
-      });
     },
 
     // use the destroy method to clean up any modifications your widget has made to the DOM
