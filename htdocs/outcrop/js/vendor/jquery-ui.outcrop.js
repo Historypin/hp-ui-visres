@@ -1,6 +1,6 @@
 /**
  * outcrop
- * v0.9.12
+ * v0.9.14
  * @copyright Shift/We Are What We Do (http://wearewhatwedo.org/)
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2 Open source licence
  * @author  Alex Stanhope (alex_stanhope@hotmail.com)
@@ -401,9 +401,6 @@
             // image could have been scaled, so need to calc centre based on scaled coords
             that.options.x = Math.max(cc.imageSDiffWidth / 2, 0) / cc.imageNormCoordZ;
             that.options.y = Math.max(cc.imageSDiffHeight / 2, 0) / cc.imageNormCoordZ;
-            // zoom is normCoord (0 < cc.imageNormCoordZMax), e.g. could be 0-2.0, so x100
-            that.options.zoom = cc.imageNormCoordZ * 100;
-            that._writeOutFormValues();
           },
 
           /**
@@ -412,17 +409,32 @@
           'init': function(that, centre) {
             var cc = this;
             cc.calcContainer(that.options.jq);
-            // compute the minimum zoom amount that's needed for this image to fill its container, and the maximum based on slideZoomLimit
-            cc.imageNormCoordZMin = Math.max(cc.containerWidth / that.options.imageNativeWidth, cc.containerHeight / that.options.imageNativeHeight);
-            cc.imageNormCoordZMax = that.options.sliderZoomLimit / 100;
-            // crop cc.imageNormCoordZ [0-1 (for 100%) or 0-2 (for 200%)] using computed cc.imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
-            cc.imageNormCoordZ = that._calcBounded(that.options.zoom / 100 , cc.imageNormCoordZMin, cc.imageNormCoordZMax);
+            // cannot calculate without image dimensions
+            if (that.options.imageNativeWidth != undefined && that.options.imageNativeHeight != undefined) {
+              // compute the minimum zoom amount that's needed for this image to fill its container, and the maximum based on slideZoomLimit
+              cc.imageNormCoordZMin = Math.max(cc.containerWidth / that.options.imageNativeWidth, cc.containerHeight / that.options.imageNativeHeight);
+              cc.imageNormCoordZMax = that.options.sliderZoomLimit / 100;
+              // if the sliderZoomLimit is too small to allow the image to fill the container
+              if (cc.imageNormCoordZMin > cc.imageNormCoordZMax) {
+                // relax the sliderZoomLimit
+                that.options.sliderZoomLimit = cc.imageNormCoordZMin * 100;
+                cc.imageNormCoordZMax = cc.imageNormCoordZMin;
+                // crop cc.imageNormCoordZ [0-1 (for 100%) or 0-2 (for 200%)] using computed cc.imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
+                cc.imageNormCoordZ = that._calcBounded(that.options.zoom / 100 , cc.imageNormCoordZMin, cc.imageNormCoordZMax);
+                // zoom is normCoord (0 < cc.imageNormCoordZMax), e.g. could be 0-2.0, so x100
+                that.options.zoom = cc.imageNormCoordZ * 100;
+              } else {              
+                // crop cc.imageNormCoordZ [0-1 (for 100%) or 0-2 (for 200%)] using computed cc.imageNormCoordZmin, otherwise we can initialise to less than the minimum width/height
+                cc.imageNormCoordZ = that._calcBounded(that.options.zoom / 100 , cc.imageNormCoordZMin, cc.imageNormCoordZMax);
+              }
+            }
             // calculate offsets (scaled offsets)
             cc.recalcBlock(that);
             // if we should re-centre the image
             if (centre) {
               cc.centre(that);
             }
+            that._writeOutFormValues();
             // capture input x,y (start values) as scaled coords
             cc.imageScaledCoordX = that.options.x;
             cc.imageScaledCoordY = that.options.y;

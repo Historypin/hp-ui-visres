@@ -159,13 +159,15 @@
       // put a big image inside it
       var jq = $('#qunit-slid200').append('<img alt="big image of cars from 1980" src="img/AH180.jpg" />');
       // wait until outcrop is ready before testing
+      QUnit.stop();
       jq.bind('outcropready', function(event, ui) {
         // get slider position (slider still on 0-100 scale)
         var jqSlider = jq.outcrop('option', 'jqSlider');
-        ok( jqSlider.slider('value') == 100, 'slider at full ('+jqSlider.slider('value')+')' );
+        equal( jqSlider.slider('value'), 100, 'slider at full ('+jqSlider.slider('value')+')' );
         // get the image size, check 200%
-        ok( jq.find('.cropped img').width() == imageWidth * 200 / 100, 'image at 200%' );
+        equal( jq.find('.cropped img').width(), imageWidth * 200 / 100, 'image at 200%' );
         jq.outcrop('destroy');
+        QUnit.start();
       });
       // outcrop it (edit-mode, top-left at 100%)
       jq.outcrop( { 'mode': 'edit', 'x': 0, 'y': 0, 'zoom': 200, 'sliderZoomLimit': 200 } );
